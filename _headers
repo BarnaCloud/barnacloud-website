@@ -1,24 +1,5 @@
 /*
-  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Content-Security-Policy:
-    default-src 'self';
-    script-src 'self' 'sha256-DNFFueW1nzWLKasslK8ng9V2b702rs97Pu3DnWneBJQ=' https://cdn.tailwindcss.com https://www.google.com https://www.gstatic.com https://www.recaptcha.net;
-    style-src  'self' 'unsafe-inline' https://fonts.googleapis.com;
-    font-src   'self' https://fonts.gstatic.com;
-    img-src    'self' data: https:;
-    connect-src 'self' https://www.google.com https://www.gstatic.com https://www.recaptcha.net;
-    frame-src  https://www.google.com https://recaptcha.google.com https://www.recaptcha.net;
-    base-uri   'self';
-    frame-ancestors 'none';
-    object-src 'none';
-    form-action 'self';
-    upgrade-insecure-requests
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), camera=(), microphone=()
-  X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Resource-Policy: same-site
-
-/gracias.html
-  X-Robots-Tag: noindex, follow
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
