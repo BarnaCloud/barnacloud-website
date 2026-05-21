@@ -2,7 +2,7 @@
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Content-Security-Policy:
     default-src 'self';
-    script-src 'self' https://cdn.tailwindcss.com https://www.google.com https://www.gstatic.com https://www.recaptcha.net;
+    script-src 'self' 'sha256-DNFFueW1nzWLKasslK8ng9V2b702rs97Pu3DnWneBJQ=' https://cdn.tailwindcss.com https://www.google.com https://www.gstatic.com https://www.recaptcha.net;
     style-src  'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src   'self' https://fonts.gstatic.com;
     img-src    'self' data: https:;

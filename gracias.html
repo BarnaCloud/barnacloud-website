@@ -17,28 +17,41 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/cookie-banner.css" />
 
   <style>
     body { font-family: Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial }
     :focus-visible { outline: 2px solid #6366f1; outline-offset: 2px }
     html { scroll-behavior: smooth }
+    .top-nav a { position: relative; transition: color .2s ease, transform .2s ease; }
+    .top-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.35rem; height: 2px; border-radius: 999px; background: #4f46e5; transform: scaleX(0); transform-origin: center; transition: transform .2s ease; }
+    .top-nav a:hover, .top-nav a:focus-visible { color: #4f46e5; transform: translateY(-1px); }
+    .top-nav a:hover::after, .top-nav a:focus-visible::after { transform: scaleX(1); }
+    .brand-link img { transition: transform .22s ease, filter .22s ease; transform-origin: center; }
+    .brand-link:hover img, .brand-link:focus-visible img { transform: scale(1.04); filter: drop-shadow(0 8px 14px rgba(79,70,229,.16)); }
+    @media (prefers-reduced-motion: reduce) {
+      .top-nav a, .top-nav a::after, .brand-link img { transition: none; }
+      .top-nav a:hover, .top-nav a:focus-visible, .brand-link:hover img, .brand-link:focus-visible img { transform: none; }
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
   <!-- Header -->
   <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200" role="banner">
     <div class="max-w-6xl mx-auto px-4 py-2 md:py-3 flex items-center justify-between">
-      <a href="./" class="flex items-center gap-3 md:gap-4" aria-label="Inicio">
-        <img src="./logos/logo01-transparent.png" alt="BarnaCloud" class="h-[58px] md:h-[66px] lg:h-[74px] w-auto shrink-0" />
+      <a href="./" class="brand-link flex items-center gap-3 md:gap-4" aria-label="Inicio">
+        <img src="./logos/BarnaCloud_logo02-transparent.png" alt="BarnaCloud" class="h-[68px] md:h-[78px] lg:h-[88px] w-auto shrink-0" />
       </a>
       <!-- En móvil no mostramos el menú (md:flex lo oculta por defecto) -->
-      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
+      <nav class="top-nav hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
         <a href="index.html">Inicio</a>
         <a href="index.html#features">Funcionalidades</a>
         <a href="index.html#pricing">Precios</a>
         <a href="index.html#faq">FAQ</a>
         <a href="index.html#about">Quiénes somos</a>
         <a href="index.html#contact">Contacto</a>
+        <a href="alta-clientes.html" class="font-semibold text-indigo-600">Alta clientes</a>
+        <a href="area-clientes.html" class="px-3 py-2 rounded-xl border border-slate-300 font-semibold text-slate-700 hover:border-indigo-300 hover:bg-white">Área clientes</a>
       </nav>
     </div>
   </header>
@@ -53,8 +66,8 @@
         </div>
         <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900">¡Solicitud enviada!</h1>
         <p class="mt-4 text-base md:text-lg text-slate-600">
-          Hemos recibido tu alta para <strong>Starter Sync (200&nbsp;GB)</strong>.
-          Te contactaremos en breve por email para confirmar datos y enviarte el enlace de pago seguro.
+          Hemos recibido tu solicitud para la <strong>prueba gratuita de BarnaCloud Sync (200&nbsp;GB)</strong>.
+          Te contactaremos en breve por email para confirmar el espacio y activar el acceso.
         </p>
 
         <!-- Mensaje de redirección -->
@@ -68,10 +81,9 @@
              class="w-full md:w-auto text-center px-5 py-3 rounded-xl ring-1 ring-slate-300 font-semibold hover:bg-white">
             Volver al inicio
           </a>
-          <a href="https://wa.me/34000554433?text=Hola%20vengo%20de%20la%20p%C3%A1gina%20de%20gracias%20%F0%9F%91%8B"
-             target="_blank" rel="noopener"
-             class="w-full md:w-auto text-center px-5 py-3 rounded-xl bg-emerald-600 text-white font-semibold shadow hover:bg-emerald-700">
-            Hablar por WhatsApp
+	          <a href="mailto:barnacloudbcn@gmail.com"
+	             class="w-full md:w-auto text-center px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">
+	            Escribir por email
           </a>
         </div>
 
@@ -94,8 +106,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+	  <script src="assets/main.js" defer></script>
+	</body>
+	</html>

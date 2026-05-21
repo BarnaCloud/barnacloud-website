@@ -1,0 +1,140 @@
+.cookie-banner {
+  position: fixed;
+  left: .5rem;
+  right: .5rem;
+  bottom: .5rem;
+  z-index: 60;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  color: #334155;
+  background: rgba(255, 255, 255, .96);
+  border: 1px solid #e2e8f0;
+  border-radius: .75rem;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, .16);
+  backdrop-filter: blur(10px);
+}
+
+.cookie-banner[hidden] {
+  display: none;
+}
+
+.cookie-banner__close {
+  position: absolute;
+  top: .45rem;
+  right: .65rem;
+  color: #0f172a;
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.cookie-banner__close:hover,
+.cookie-banner__close:focus-visible {
+  color: #4f46e5;
+  transform: scale(1.08);
+}
+
+.cookie-banner__text {
+  max-width: 72rem;
+  padding-right: 2rem;
+  font-size: .78rem;
+  line-height: 1.55;
+}
+
+.cookie-banner__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .85rem;
+  margin-top: .65rem;
+}
+
+.cookie-banner__links a,
+.cookie-banner__link {
+  color: #475569;
+  font-size: .75rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cookie-banner__actions {
+  display: grid;
+  gap: .5rem;
+}
+
+.cookie-banner__button {
+  min-height: 2.35rem;
+  padding: .55rem 1rem;
+  color: #0f172a;
+  font-size: .78rem;
+  font-weight: 600;
+  background: #fff;
+  border: 1px solid #f97373;
+  border-radius: .45rem;
+  transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+.cookie-banner__button:hover,
+.cookie-banner__button:focus-visible {
+  color: #4f46e5;
+  border-color: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.cookie-banner__preferences {
+  grid-column: 1 / -1;
+  padding: .85rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: .6rem;
+}
+
+.cookie-banner__preferences[hidden] {
+  display: none;
+}
+
+.cookie-banner__option {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  margin: .25rem 0;
+  font-size: .78rem;
+}
+
+.cookie-banner__option strong {
+  display: block;
+  color: #0f172a;
+}
+
+.cookie-banner__option span {
+  display: block;
+  color: #64748b;
+}
+
+@media (min-width: 900px) {
+  .cookie-banner {
+    grid-template-columns: 1fr minmax(28rem, 38rem);
+    align-items: center;
+    padding: 1.1rem 1rem;
+  }
+
+  .cookie-banner__actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-right: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie-banner__close,
+  .cookie-banner__button {
+    transition: none;
+  }
+
+  .cookie-banner__close:hover,
+  .cookie-banner__close:focus-visible,
+  .cookie-banner__button:hover,
+  .cookie-banner__button:focus-visible {
+    transform: none;
+  }
+}

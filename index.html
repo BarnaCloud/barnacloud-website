@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tu copia de seguridad en Barcelona | BarnaCloud</title>
-  <meta name="description" content="Nube privada tipo Dropbox/Nextcloud y copias de seguridad en Barcelona: sincroniza, comparte y protege tus archivos con cifrado y datos en España." />
-  <meta property="og:title" content="Backups y nube privada en Barcelona" />
-  <meta property="og:description" content="Sincroniza y comparte como Dropbox/Nextcloud y realiza backups en frío con cifrado y datos alojados en España. Soporte cercano." />
+  <title>Nube privada segura en Barcelona | BarnaCloud</title>
+  <meta name="description" content="Nube privada tipo Drive o Dropbox para despachos y consultas en Barcelona: sincroniza, comparte y protege archivos con cifrado y datos en España." />
+  <meta property="og:title" content="Nube privada segura en Barcelona" />
+  <meta property="og:description" content="Sincroniza y comparte archivos como en Drive o Dropbox con una nube privada de proximidad, cifrado y datos alojados en España." />
 
   <!-- Cuando tengas dominio cámbialo en canonical y og:url -->
   <link rel="canonical" href="https://www.barnacloud.com/" />
@@ -15,10 +15,10 @@
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="BarnaCloud" />
-  <meta property="og:title" content="Backups y nube privada en Barcelona | Backups Online Barcelona" />
-  <meta property="og:description" content="Nube privada tipo Dropbox/Nextcloud y copias de seguridad en Barcelona: sincroniza, comparte y protege tus archivos con cifrado y datos alojados en España. Soporte cercano." />
+  <meta property="og:title" content="Nube privada segura en Barcelona | BarnaCloud" />
+  <meta property="og:description" content="Nube privada tipo Drive o Dropbox para despachos y consultas en Barcelona: sincroniza, comparte y protege archivos con cifrado y datos alojados en España." />
   <meta property="og:url" content="https://www.barnacloud.com/" />
-  <meta property="og:image" content="https://www.barnacloud.com/logos/logo01-transparent" />
+  <meta property="og:image" content="https://www.barnacloud.com/logos/logo01-transparent.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
 
@@ -27,13 +27,93 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="icon" href="/logos/logo01-transparent.png" />
+  <link rel="stylesheet" href="assets/cookie-banner.css" />
 
   <style>
     body { font-family: Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial }
     :focus-visible { outline: 2px solid #6366f1; outline-offset: 2px }
     html { scroll-behavior: smooth }
+    .top-nav a { position: relative; transition: color .2s ease, transform .2s ease; }
+    .top-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.35rem; height: 2px; border-radius: 999px; background: #4f46e5; transform: scaleX(0); transform-origin: center; transition: transform .2s ease; }
+    .top-nav a:hover, .top-nav a:focus-visible { color: #4f46e5; transform: translateY(-1px); }
+    .top-nav a:hover::after, .top-nav a:focus-visible::after { transform: scaleX(1); }
+    .brand-link img { transition: transform .22s ease, filter .22s ease; transform-origin: center; }
+    .brand-link:hover img, .brand-link:focus-visible img { transform: scale(1.04); filter: drop-shadow(0 8px 14px rgba(79,70,229,.16)); }
+    .hero-cta {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      min-height: 3.25rem;
+      transition: transform .22s ease, box-shadow .22s ease, background-color .22s ease, border-color .22s ease, color .22s ease;
+      will-change: transform;
+    }
+    .hero-cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity .22s ease;
+      box-shadow: 0 0 0 6px rgba(16,185,129,.12);
+      pointer-events: none;
+    }
+    .hero-cta:hover, .hero-cta:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 34px rgba(15,23,42,.14);
+    }
+    .hero-cta:hover::after, .hero-cta:focus-visible::after { opacity: 1; }
+    .hero-cta--primary:hover, .hero-cta--primary:focus-visible { background: #059669; }
+    .hero-cta--secondary:hover, .hero-cta--secondary:focus-visible {
+      color: #4f46e5;
+      border-color: rgba(79,70,229,.45);
+      background: #fff;
+    }
+    .hero-cta--secondary::after { box-shadow: 0 0 0 6px rgba(79,70,229,.10); }
+    .hero-price-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      color: #475569;
+      font-weight: 600;
+      transition: color .2s ease, transform .2s ease;
+    }
+    .hero-price-link:hover, .hero-price-link:focus-visible {
+      color: #4f46e5;
+      transform: translateX(2px);
+    }
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2rem;
+      border: 1px solid rgba(203,213,225,.55);
+      background: rgba(241,245,249,.78);
+      color: #475569;
+      box-shadow: 0 8px 18px rgba(15,23,42,.04);
+      animation: trust-pill-in .55s ease both;
+      transition: transform .2s ease, box-shadow .2s ease, color .2s ease, background-color .2s ease, border-color .2s ease;
+      will-change: transform;
+    }
+    .trust-pill:nth-child(2) { animation-delay: .08s; }
+    .trust-pill:nth-child(3) { animation-delay: .16s; }
+    .trust-pill:nth-child(4) { animation-delay: .24s; }
+    .trust-pill:hover {
+      transform: translateY(-2px);
+      color: #4f46e5;
+      border-color: rgba(79,70,229,.22);
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 12px 24px rgba(79,70,229,.12);
+    }
+    @keyframes trust-pill-in {
+      from { opacity: 0; transform: translateY(8px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .top-nav a, .top-nav a::after, .brand-link img, .hero-cta, .hero-cta::after, .hero-price-link, .trust-pill { transition: none; animation: none; }
+      .top-nav a:hover, .top-nav a:focus-visible, .brand-link:hover img, .brand-link:focus-visible img, .hero-cta:hover, .hero-cta:focus-visible, .hero-price-link:hover, .hero-price-link:focus-visible, .trust-pill:hover { transform: none; }
+    }
     /* MVP helpers: mostrar otros planes pero atenuados/bloqueados */
     .locked { position: relative; }
     .locked::after { content: ""; position: absolute; inset: 0; background: rgba(255,255,255,0.65); border-radius: 1rem; pointer-events: none; }
@@ -48,11 +128,10 @@
       "@type": "ProfessionalService",
       "name": "BarnaCloud",
       "url": "https://www.barnacloud.com/",
-      "image": "https://www.barnacloud.com/logos/logo01-transparent",
+      "image": "https://www.barnacloud.com/logos/logo01-transparent.png",
       "areaServed": "ES-Barcelona",
       "address": { "@type": "PostalAddress", "addressLocality": "Barcelona", "addressCountry": "ES" },
-      "email": "mailto:barnacloudbcn@gmail.com",
-      "telephone": "+34 000 55 44 33"
+      "email": "mailto:barnacloudbcn@gmail.com"
     },
     {
       "@type": "FAQPage",
@@ -73,34 +152,33 @@
 
 </head>
 <body class="bg-slate-50 text-slate-800">
-<!-- Header -->
-<header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200" role="banner">
-  <div class="max-w-6xl mx-auto px-4 py-2 md:py-3 flex items-center justify-between">
-    <a href="./" class="flex items-center gap-3 md:gap-4" aria-label="Inicio">
-      <img src="./logos/logo01-transparent.png" alt="BarnaCloud" class="h-[58px] md:h-[66px] lg:h-[74px] w-auto shrink-0" />
-    </a>
-    <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
-      <a href="#features">Funcionalidades</a>
-      <a href="#how">Cómo funciona</a>
-      <a href="#pricing">Precios</a>
-      <a href="#faq">FAQ</a>
-      <a href="#about">Quiénes somos</a>
-      <a href="#contact">Contacto</a>
-      <a href="alta-clientes.html" class="font-semibold text-indigo-600">Alta clientes</a>
-    </nav>
-  </div>
-</header>
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200" role="banner">
+    <div class="max-w-6xl mx-auto px-4 py-2 md:py-3 flex items-center justify-between">
+      <a href="./" class="brand-link flex items-center gap-3 md:gap-4" aria-label="Inicio">
+        <img src="./logos/BarnaCloud_logo02-transparent.png" alt="BarnaCloud" class="h-[68px] md:h-[78px] lg:h-[88px] w-auto shrink-0" />
+      </a>
+      <nav class="top-nav hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
+        <a href="#features">Funcionalidades</a>
+        <a href="#how">Cómo funciona</a>
+        <a href="#pricing">Precios</a>
+        <a href="#faq">FAQ</a>
+        <a href="#about">Quiénes somos</a>
+        <a href="#contact">Contacto</a>
+        <a href="alta-clientes.html" class="font-semibold text-indigo-600">Alta clientes</a>
+        <a href="area-clientes.html" class="px-3 py-2 rounded-xl border border-slate-300 font-semibold text-slate-700 hover:border-indigo-300 hover:bg-white">Área clientes</a>
+      </nav>
 
       <!-- Botón menú móvil -->
       <button
-        id="menuBtn"
-        class="md:hidden inline-flex items-center justify-center p-2 rounded-xl ring-1 ring-slate-300"
-        aria-expanded="false"
-        aria-controls="mobileMenu"
-        aria-label="Abrir menú">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-          <path d="M3.75 6.75h16.5v1.5H3.75zM3.75 11.25h16.5v1.5H3.75zM3.75 15.75h16.5v1.5H3.75z" />
-        </svg>
+          id="menuBtn"
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-xl ring-1 ring-slate-300"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+          aria-label="Abrir menú">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path d="M3.75 6.75h16.5v1.5H3.75zM3.75 11.25h16.5v1.5H3.75zM3.75 15.75h16.5v1.5H3.75z" />
+          </svg>
       </button>
     </div>
 
@@ -114,6 +192,7 @@
         <a href="#about" class="py-1">Quiénes somos</a>
         <a href="#contact" class="py-1">Contacto</a>
         <a href="alta-clientes.html" class="py-1 font-semibold text-indigo-600">Alta clientes</a>
+        <a href="area-clientes.html" class="py-1 font-semibold text-slate-700">Área clientes</a>
       </div>
     </div>
   </header>
@@ -125,29 +204,37 @@
       <div class="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-indigo-200/30 blur-3xl"></div>
       <div class="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-emerald-200/30 blur-3xl"></div>
 
-      <div class="max-w-6xl mx-auto px-4 pt-14 pb-16 grid md:grid-cols-2 items-center gap-10">
-        <div>
-            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-slate-900">
-              Protege la información confidencial de tu <span class="text-indigo-600">despacho o consulta médica</span> con backups seguros en Barcelona
+      <div class="max-w-6xl mx-auto px-4 pt-12 pb-14 grid md:grid-cols-2 items-center gap-10">
+        <div class="max-w-lg">
+            <h1 class="text-xl md:text-[1.25rem] lg:text-[1.45rem] font-extrabold leading-[1.25] text-slate-900">
+              Protege la información confidencial de tu <span class="text-indigo-600">despacho o consulta médica</span> con una nube privada segura en Barcelona
             </h1>
-            <p class="mt-4 text-lg text-slate-600">
-              Solución local para bufetes de abogados, consultas médicas y profesionales que requieren máxima privacidad y cumplimiento RGPD. Copias de seguridad cifradas, restauración rápida y soporte cercano en Barcelona.
+            <p class="mt-5 text-base leading-relaxed text-slate-600">
+              Solución cloud de proximidad para empresas y profesionales que trabajan con información sensible: abogados, médicos, gestorías, despachos profesionales y pequeñas empresas. Empieza con una prueba gratuita de 200 GB para guardar, sincronizar y compartir archivos como en Drive o Dropbox, con cifrado, datos en España y acompañamiento técnico cercano.
             </p>
-          <div class="mt-6 flex flex-wrap gap-3 items-center">
-            <a href="#pricing" class="px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">Ver precios</a>
-            <a href="#contact" class="px-5 py-3 rounded-xl ring-1 ring-slate-300 text-slate-700 font-semibold hover:bg-white">Contacta con nosotros</a>
-            <a href="alta-clientes.html" class="px-5 py-3 rounded-xl bg-emerald-500 text-white font-semibold shadow hover:bg-emerald-600">Pruébalo</a>
-            <span class="text-xs text-slate-500 ml-2">Cuenta gratis</span>
+          <div class="mt-7 flex flex-col sm:flex-row gap-3 sm:items-center">
+            <a href="alta-clientes.html" class="hero-cta hero-cta--primary px-7 py-3 rounded-xl bg-emerald-500 text-white font-semibold shadow-lg shadow-emerald-500/20">
+              Pruébalo
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="#contact" class="hero-cta hero-cta--secondary px-7 py-3 rounded-xl border border-slate-300 text-slate-700 font-semibold bg-white/70">
+              Contacta con nosotros
+            </a>
+          </div>
+          <div class="mt-4">
+            <a href="#pricing" class="hero-price-link text-sm">
+              Ver precios orientativos
+              <span aria-hidden="true">&darr;</span>
+            </a>
           </div>
 
           <!-- Faja confianza (placeholder) -->
           <div class="mt-10 flex flex-wrap items-center gap-4 text-xs text-slate-500">
-            <span>Confiado por equipos locales</span>
-            <span class="px-2 py-1 rounded-lg bg-slate-100">Bufetes de abogados</span>
-            <span class="px-2 py-1 rounded-lg bg-slate-100">Consultas médicas</span>
-            <span class="px-2 py-1 rounded-lg bg-slate-100">Estudios creativos</span>
-            <span class="px-2 py-1 rounded-lg bg-slate-100">Pymes</span>
-            <span class="px-2 py-1 rounded-lg bg-slate-100">Despachos</span>
+
+            <span class="trust-pill px-3 py-1 rounded-xl">Bufetes de abogados</span>
+            <span class="trust-pill px-3 py-1 rounded-xl">Consultas médicas</span>
+            <span class="trust-pill px-3 py-1 rounded-xl">Estudios creativos</span>
+            <span class="trust-pill px-3 py-1 rounded-xl">Despachos</span>
           </div>
         </div>
       </div>
@@ -166,7 +253,7 @@
               </svg>
             </div>
             <h3 class="font-semibold">Seguridad</h3>
-            <p class="mt-2 text-slate-600">Cifrado AES-256 en reposo y TLS 1.3 en tránsito, claves únicas por cliente, MFA para restauraciones críticas y posibilidad de copias en frío a través de VPN para máxima privacidad.</p>
+            <p class="mt-2 text-slate-600">Cifrado AES-256 en reposo y TLS 1.3 en tránsito, claves únicas por cliente, MFA y acceso privado para proteger documentos sensibles.</p>
           </article>
 
           <article class="p-6 rounded-2xl border bg-slate-50 shadow-sm hover:shadow-md transition-shadow">
@@ -233,9 +320,9 @@
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-2xl md:text-3xl font-bold">Cómo funciona</h2>
         <ol class="mt-6 grid md:grid-cols-3 gap-6 text-slate-700">
-          <li class="p-6 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-shadow"><span class="font-semibold">1) Auditoría rápida</span><br>Detectamos qué proteger (PCs, NAS, servidores, M365, etc.).</li>
-          <li class="p-6 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-shadow"><span class="font-semibold">2) Agente ligero</span><br>Instalamos y definimos políticas de retención y ventanas horarias.</li>
-          <li class="p-6 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-shadow"><span class="font-semibold">3) Monitorización</span><br>Supervisión diaria, alertas y restauraciones guiadas en minutos.</li>
+          <li class="p-6 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-shadow"><span class="font-semibold">1) Solicitud de prueba</span><br>Nos indicas empresa, usuarios iniciales y subdominio preferido.</li>
+          <li class="p-6 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-shadow"><span class="font-semibold">2) Espacio privado</span><br>Creamos tu nube de 200 GB para guardar y compartir archivos como en Drive o Dropbox.</li>
+          <li class="p-6 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-shadow"><span class="font-semibold">3) Acompañamiento</span><br>Te enviamos el acceso y te ayudamos con la puesta en marcha inicial.</li>
         </ol>
       </div>
     </section>
@@ -245,14 +332,12 @@
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-2xl md:text-3xl font-bold">Precios</h2>
         <p class="mt-2 text-slate-600">
-          Dos modalidades según el tipo de pool de discos y el uso:
-          <strong>Pool 1</strong> para sincronización (clon de Dropbox / Nextcloud) y
-          <strong>Pool 2</strong> para backups en frío (retención larga, acceso bajo demanda). IVA no incluido.
+          Empezamos con una prueba gratuita acotada a <strong>200&nbsp;GB</strong> para sincronizar y compartir archivos como en Drive o Dropbox. El servicio de backup de equipos con agente llegará más adelante.
         </p>
 
         <!-- Aviso MVP -->
         <div class="mt-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 text-sm">
-          <strong>MVP:</strong> de momento solo está disponible <em>Starter Sync (200&nbsp;GB)</em>. El resto de planes aparecerán pronto.
+          <strong>Prueba inicial:</strong> de momento solo está disponible <em>BarnaCloud Sync (200&nbsp;GB)</em>. No pedimos datos de pago para activarla.
         </div>
 
         <!-- Toggle de pools -->
@@ -272,15 +357,15 @@
         <div id="pricingPool1" class="mt-8 grid md:grid-cols-3 gap-6">
           <!-- Starter (única elegible) -->
           <div class="p-6 rounded-2xl border bg-slate-50 shadow-sm hover:shadow-md transition-shadow">
-            <h3 class="text-lg font-semibold">Starter Sync</h3>
-            <p class="mt-1 text-sm text-slate-600">Hasta 200 GB</p>
-            <p class="mt-4 text-3xl font-extrabold">9,90€<span class="text-base font-medium text-slate-500">/mes</span></p>
+            <h3 class="text-lg font-semibold">Prueba Sync</h3>
+            <p class="mt-1 text-sm text-slate-600">Nube privada · 200 GB</p>
+            <p class="mt-4 text-3xl font-extrabold">Gratis<span class="text-base font-medium text-slate-500"> durante la prueba</span></p>
             <ul class="mt-4 text-sm text-slate-700 list-disc list-inside">
-              <li>1 usuario · 3 dispositivos</li>
+              <li>Hasta 200 GB de espacio</li>
               <li>Versionado 30 días</li>
               <li>Acceso web y móvil</li>
             </ul>
-            <a href="alta-clientes.html" class="mt-6 inline-flex px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">Darme de alta</a>
+            <a href="alta-clientes.html" class="mt-6 inline-flex px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">Empezar prueba</a>
           </div>
 
           <!-- Business (bloqueado) -->
@@ -398,57 +483,60 @@
         <div>
           <h2 class="text-2xl md:text-3xl font-bold">Quiénes somos</h2>
           <p class="mt-4 text-slate-600">
-            Somos un equipo local en Barcelona especializado en copias de seguridad y protección de datos para PYMEs y creadores.
-            Nuestra misión es que nunca pierdas tu información crítica, con servicio cercano y cumplimiento RGPD.
+            Somos un equipo local en Barcelona especializado en nube privada, sincronización segura y protección de datos para despachos, consultas y pequeñas empresas.
+            Nuestra misión es que puedas guardar y compartir información sensible con un servicio cercano, claro y alineado con RGPD.
           </p>
           <p class="mt-4 text-slate-600">
-            Unimos experiencia en cloud y seguridad con soporte humano. Te ayudamos desde la instalación inicial hasta la recuperación más urgente.
+            Unimos experiencia en cloud y seguridad con soporte humano. Te ayudamos desde la puesta en marcha inicial hasta la organización de usuarios, carpetas y permisos.
           </p>
         </div>
-        <div>
-          <img src="/logos/logo01-transparent.png" alt="Equipo de Barna Cloud" class="rounded-2xl shadow-md" loading="lazy" decoding="async" />
+        <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-md">
+          <img
+            src="logos/BarnaCloud_logo01.png"
+            alt="Equipo de BarnaCloud trabajando en una oficina de Barcelona"
+            class="aspect-[4/3] w-full object-cover"
+            loading="lazy"
+            decoding="async"
+            onerror="this.onerror=null; this.src='/logos/logo01-transparent.png'; this.classList.remove('object-cover'); this.classList.add('object-contain','p-10');"
+          />
         </div>
       </div>
     </section>
 
     <!-- Contacto -->
-    <section id="contact" class="scroll-mt-16 md:scroll-mt-24 py-16 border-t border-slate-200 bg-white">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl md:text-3xl font-bold">Hablemos</h2>
-
-        <!-- CTA rápidos -->
-        <div class="mt-3 flex flex-wrap gap-3">
-          <a href="https://wa.me/34000554433?text=Hola%20%F0%9F%91%8B%20vengo%20de%20la%20web%20de%20BarnaCloud%20O."
-             target="_blank" rel="noopener"
-             class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500 text-white font-semibold hover:bg-emerald-600">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
-              <path d="M.057 24l1.687-6.163A11.867 11.867 0 01.843 12.06C.16 5.3 5.3.16 11.887.16A11.82 11.82 0 0123.84 12c0 6.587-5.34 11.827-11.947 11.827a11.9 11.9 0 01-5.938-1.594L.057 24zM6.6 19.19c1.676.995 3.276 1.591 5.204 1.593 5.448 0 9.886-4.428 9.886-9.869 0-2.64-1.03-5.123-2.903-6.997a9.825 9.825 0 00-6.983-2.9c-5.44 0-9.868 4.428-9.868 9.87a9.82 9.82 0 001.597 5.228l-.998 3.648 3.065-.963z"/>
-            </svg>
-            WhatsApp
-          </a>
-          <a href="mailto:barnacloudbcn@gmail.com"
-             class="inline-flex items-center px-4 py-2 rounded-xl ring-1 ring-slate-300 font-semibold hover:bg-white">
-            Email
-          </a>
+    <section id="contact" class="scroll-mt-16 md:scroll-mt-24 py-12 border-t border-slate-200 bg-white">
+      <div class="max-w-3xl mx-auto px-4">
+        <div class="text-center">
+          <h2 class="text-2xl md:text-3xl font-bold">¿Tienes dudas antes de probarlo?</h2>
+          <p class="mt-3 text-slate-600">
+            Escríbenos si quieres comentar privacidad, RGPD, usuarios o cómo encajaría BarnaCloud en tu despacho.
+          </p>
         </div>
 
-        <form class="mt-6 p-6 rounded-2xl border bg-slate-50 grid gap-4" name="contacto" method="post" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="mt-7 rounded-2xl border bg-slate-50 p-5 md:p-6 grid gap-4" name="contacto" method="post" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contacto" />
           <p class="hidden"><label>No rellenes esto: <input name="bot-field" /></label></p>
 
-          <label class="grid gap-1">
-            <span class="text-sm">Nombre</span>
-            <input required name="nombre" class="px-3 py-2 rounded-xl border bg-white" />
-          </label>
-          <label class="grid gap-1">
-            <span class="text-sm">Email</span>
-            <input required type="email" name="email" class="px-3 py-2 rounded-xl border bg-white" />
-          </label>
+          <div class="grid md:grid-cols-2 gap-4">
+            <label class="grid gap-1">
+              <span class="text-sm">Nombre</span>
+              <input required name="nombre" class="px-3 py-2 rounded-xl border bg-white" />
+            </label>
+            <label class="grid gap-1">
+              <span class="text-sm">Email</span>
+              <input required type="email" name="email" class="px-3 py-2 rounded-xl border bg-white" />
+            </label>
+          </div>
           <label class="grid gap-1">
             <span class="text-sm">Mensaje</span>
-            <textarea required name="mensaje" rows="4" class="px-3 py-2 rounded-xl border bg-white"></textarea>
+            <textarea required name="mensaje" rows="3" class="px-3 py-2 rounded-xl border bg-white"></textarea>
           </label>
-          <button type="submit" class="mt-2 inline-flex px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">Enviar</button>
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <p class="text-xs text-slate-500">
+              También puedes escribir a <a href="mailto:barnacloudbcn@gmail.com" class="underline">barnacloudbcn@gmail.com</a>.
+            </p>
+            <button type="submit" class="inline-flex justify-center px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">Enviar consulta</button>
+          </div>
         </form>
       </div>
     </section>
@@ -466,105 +554,6 @@
     </div>
   </footer>
 
-<!-- Botón flotante WhatsApp -->
-<a
-  href="https://wa.me/34000554433?text=Hola%20%F0%9F%91%8B%20vengo%20de%20la%20web%20de%20Backups%20Online%20Barcelona.%20Me%20gustar%C3%ADa%20info."
-  target="_blank"
-  rel="noopener noreferrer"
-  class="fixed z-40 bottom-5 right-5 inline-flex items-center justify-center h-14 w-14 rounded-full bg-emerald-500 text-white shadow-xl hover:bg-emerald-600 transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-400 motion-reduce:hover:scale-100"
-  aria-label="Escríbenos por WhatsApp"
-  title="Escríbenos por WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-       class="h-7 w-7" fill="currentColor" aria-hidden="true">
-    <path d="M.057 24l1.687-6.163A11.867 11.867 0 01.843 12.06C.16 5.3 5.3.16 11.887.16A11.82 11.82 0 0123.84 12c0 6.587-5.34 11.827-11.947 11.827a11.9 11.9 0 01-5.938-1.594L.057 24zM6.6 19.19c1.676.995 3.276 1.591 5.204 1.593 5.448 0 9.886-4.428 9.886-9.869 0-2.64-1.03-5.123-2.903-6.997a9.825 9.825 0 00-6.983-2.9c-5.44 0-9.868 4.428-9.868 9.87a9.82 9.82 0 001.597 5.228l-.998 3.648 3.065-.963z"/>
-  </svg>
-  <span class="sr-only">Abrir WhatsApp</span>
-</a>
-
-<!-- Botón flotante Telegram -->
-<a
-  href="https://t.me/share/url?url=https%3A%2F%2Ftusitio.com&text=Hola%20%F0%9F%91%8B%20vengo%20de%20la%20web%20de%20Backups%20Online%20Barcelona.%20Me%20gustar%C3%ADa%20info."
-  target="_blank" rel="noopener noreferrer"
-  class="fixed z-40 bottom-5 right-20 inline-flex items-center justify-center h-14 w-14 rounded-full bg-sky-500 text-white shadow-xl hover:bg-sky-600 transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sky-400 motion-reduce:hover:scale-100"
-  aria-label="Compartir por Telegram" title="Compartir por Telegram">
-  <!-- mismo SVG que arriba -->
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-       class="h-7 w-7" fill="currentColor" aria-hidden="true">
-    <path d="M22 2L2.72 9.13c-.73.27-.7 1.29.07 1.51l5.08 1.45 1.86 5.86c.19.58.93.77 1.36.35l2.7-2.63 5.02 3.65c.58.42 1.4.1 1.59-.58L23.9 3.3C24.13 2.48 23.37 1.9 22.6 2.2L9.2 7.46c-.42.17-.86-.24-.66-.66L9.9 4.1"/>
-  </svg>
-  <span class="sr-only">Compartir en Telegram</span>
-</a>
-
-  <script>
-    // Año dinámico
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Menú móvil
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn?.addEventListener('click', () => {
-      const isHidden = mobileMenu.classList.toggle('hidden');
-      menuBtn.setAttribute('aria-expanded', String(!isHidden));
-    });
-    // Cerrar el menú móvil al pulsar un enlace
-    mobileMenu?.querySelectorAll('a')?.forEach(a => {
-      a.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuBtn?.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    // Toggle de pricing por pools (Pool2 bloqueado en MVP)
-    const btnPool1 = document.getElementById('btnPool1');
-    const btnPool2 = document.getElementById('btnPool2');
-    const pricingPool1 = document.getElementById('pricingPool1');
-    const pricingPool2 = document.getElementById('pricingPool2');
-
-    function showPool(pool) {
-      const isP1 = pool === 1;
-      pricingPool1?.classList.toggle('hidden', !isP1);
-      pricingPool2?.classList.toggle('hidden', isP1);
-
-      btnPool1?.classList.toggle('bg-indigo-600', isP1);
-      btnPool1?.classList.toggle('text-white', isP1);
-      btnPool1?.classList.toggle('bg-white', !isP1);
-      btnPool1?.classList.toggle('text-slate-700', !isP1);
-
-      btnPool2?.classList.toggle('bg-indigo-600', !isP1 && !btnPool2?.hasAttribute('aria-disabled'));
-      btnPool2?.classList.toggle('text-white', !isP1 && !btnPool2?.hasAttribute('aria-disabled'));
-      btnPool2?.classList.toggle('bg-white', isP1 || btnPool2?.hasAttribute('aria-disabled'));
-      btnPool2?.classList.toggle('text-slate-700', isP1 || btnPool2?.hasAttribute('aria-disabled'));
-    }
-
-    btnPool1?.addEventListener('click', () => showPool(1));
-    btnPool2?.addEventListener('click', (e) => {
-      if (btnPool2.hasAttribute('aria-disabled')) {
-        e.preventDefault();
-        btnPool2.setAttribute('aria-label', 'Bloqueado en MVP');
-        btnPool2.classList.add('animate-pulse');
-        setTimeout(() => btnPool2.classList.remove('animate-pulse'), 600);
-        return;
-      }
-      showPool(2);
-    });
-
-      // Resaltar enlace activo del menú al hacer scroll
-      const sections = document.querySelectorAll('main section[id]');
-      const navLinks = document.querySelectorAll('header nav a[href^="#"]');
-      const linkById = new Map([...navLinks].map(a => [a.getAttribute('href').slice(1), a]));
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            navLinks.forEach(a => a.classList.remove('text-indigo-600','font-semibold'));
-            linkById.get(id)?.classList.add('text-indigo-600','font-semibold');
-          }
-        });
-      }, { rootMargin: '0px 0px -60% 0px', threshold: 0.2 });
-
-      sections.forEach(s => observer.observe(s));
-
-  </script>
+  <script src="assets/main.js" defer></script>
 </body>
 </html>
