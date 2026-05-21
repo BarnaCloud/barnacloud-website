@@ -3,32 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alta de clientes | Backups Online Barcelona</title>
-  <meta name="description" content="Formulario de alta para nuevos clientes de Backups Online Barcelona: nube privada y backups en la nube con datos en España." />
+  <title>Alta de clientes | BarnaCloud</title>
+  <meta name="description" content="Formulario de alta para probar BarnaCloud: nube privada de 200 GB tipo Drive o Dropbox con datos en España." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="icon" href="/logos/logo01-transparent.png" />
+  <link rel="stylesheet" href="assets/cookie-banner.css" />
 
   <style>
     body { font-family: Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial }
     :focus-visible { outline: 2px solid #6366f1; outline-offset: 2px }
     html { scroll-behavior: smooth }
+    .top-nav a { position: relative; transition: color .2s ease, transform .2s ease; }
+    .top-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.35rem; height: 2px; border-radius: 999px; background: #4f46e5; transform: scaleX(0); transform-origin: center; transition: transform .2s ease; }
+    .top-nav a:hover, .top-nav a:focus-visible { color: #4f46e5; transform: translateY(-1px); }
+    .top-nav a:hover::after, .top-nav a:focus-visible::after { transform: scaleX(1); }
+    .brand-link img { transition: transform .22s ease, filter .22s ease; transform-origin: center; }
+    .brand-link:hover img, .brand-link:focus-visible img { transform: scale(1.04); filter: drop-shadow(0 8px 14px rgba(79,70,229,.16)); }
+    @media (prefers-reduced-motion: reduce) {
+      .top-nav a, .top-nav a::after, .brand-link img { transition: none; }
+      .top-nav a:hover, .top-nav a:focus-visible, .brand-link:hover img, .brand-link:focus-visible img { transform: none; }
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
   <!-- Header -->
   <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200" role="banner">
     <div class="max-w-6xl mx-auto px-4 py-2 md:py-3 flex items-center justify-between">
-      <a href="./" class="flex items-center gap-3 md:gap-4" aria-label="Inicio">
-        <img src="./logos/logo01-transparent.png" alt="BarnaCloud" class="h-[58px] md:h-[66px] lg:h-[74px] w-auto shrink-0" />
+      <a href="./" class="brand-link flex items-center gap-3 md:gap-4" aria-label="Inicio">
+        <img src="./logos/BarnaCloud_logo02-transparent.png" alt="BarnaCloud" class="h-[68px] md:h-[78px] lg:h-[88px] w-auto shrink-0" />
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
+      <nav class="top-nav hidden md:flex items-center gap-6 text-sm" aria-label="Principal">
         <a href="index.html">Inicio</a>
         <a href="index.html#features">Funcionalidades</a>
         <a href="index.html#pricing">Precios</a>
@@ -36,6 +46,7 @@
         <a href="index.html#about">Quiénes somos</a>
         <a href="index.html#contact">Contacto</a>
         <a href="alta-clientes.html" class="font-semibold text-indigo-600">Alta clientes</a>
+        <a href="area-clientes.html" class="px-3 py-2 rounded-xl border border-slate-300 font-semibold text-slate-700 hover:border-indigo-300 hover:bg-white">Área clientes</a>
       </nav>
     </div>
   </header>
@@ -45,7 +56,7 @@
     <section class="bg-gradient-to-b from-slate-50 to-white py-16">
       <div class="max-w-3xl mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900">Darme de alta como cliente</h1>
-        <p class="mt-4 text-lg text-slate-600">Completa este formulario para comenzar a disfrutar de tu nube privada y backups seguros en Barcelona.</p>
+        <p class="mt-4 text-lg text-slate-600">Completa este formulario para activar una prueba gratuita de tu nube privada de 200 GB, pensada para guardar y compartir archivos como en Drive o Dropbox.</p>
       </div>
 
       <!-- Formulario -->
@@ -61,10 +72,12 @@
           <input type="hidden" name="form-name" value="alta-clientes" />
           <p class="hidden"><label>No rellenes esto: <input name="bot-field" /></label></p>
 
-          <!-- Plan bloqueado a Starter -->
+          <!-- Plan bloqueado a prueba gratuita -->
           <div class="rounded-xl border bg-slate-50 p-4 text-sm text-slate-700">
-            <strong>Plan seleccionado:</strong> Starter Sync — 200 GB — 9,90 €/mes (IVA no incluido). Puedes ampliar más adelante.
-            <input type="hidden" name="plan" value="Starter Sync 200GB" />
+            <strong>Servicio seleccionado:</strong> Prueba gratuita — Nube privada Sync — 200 GB. Podrás guardar documentos, carpetas y archivos de trabajo como en un Drive privado.
+            <input type="hidden" name="plan" value="Prueba gratuita Sync 200GB" />
+            <input type="hidden" name="tipo_servicio" value="nube-privada-sync" />
+            <input type="hidden" name="almacenamiento" value="200GB" />
           </div>
 
           <!-- Persona de contacto -->
@@ -90,46 +103,39 @@
             </div>
           </fieldset>
 
-          <!-- Datos de facturación / empresa -->
+          <!-- Datos de empresa -->
           <fieldset class="grid gap-4">
-            <legend class="text-base font-semibold">Datos de facturación</legend>
+            <legend class="text-base font-semibold">Datos de empresa</legend>
             <div class="grid md:grid-cols-2 gap-4">
               <label class="grid gap-1" for="empresa">
                 <span class="text-sm">Empresa / Autónomo *</span>
                 <input id="empresa" name="empresa" required autocomplete="organization"
                        class="px-3 py-2 rounded-xl border bg-white" />
               </label>
-              <label class="grid gap-1" for="nif">
-                <span class="text-sm">CIF / NIF *</span>
-                <input id="nif" name="nif" required pattern="[A-Za-z0-9-]{5,}"
-                       class="px-3 py-2 rounded-xl border bg-white" />
-              </label>
-              <label class="grid gap-1 md:col-span-2" for="direccion">
-                <span class="text-sm">Dirección fiscal *</span>
-                <input id="direccion" name="direccion" required autocomplete="street-address"
-                       class="px-3 py-2 rounded-xl border bg-white" />
+              <label class="grid gap-1" for="sector">
+                <span class="text-sm">Tipo de actividad</span>
+                <select id="sector" name="sector" class="px-3 py-2 rounded-xl border bg-white">
+                  <option value="">Selecciona una opción</option>
+                  <option value="abogados">Bufete / despacho de abogados</option>
+                  <option value="consulta-medica">Consulta médica</option>
+                  <option value="gestoria">Gestoría / asesoría</option>
+                  <option value="estudio-creativo">Estudio creativo</option>
+                  <option value="pyme">Pequeña empresa</option>
+                  <option value="otro">Otro</option>
+                </select>
               </label>
               <label class="grid gap-1" for="ciudad">
-                <span class="text-sm">Ciudad *</span>
-                <input id="ciudad" name="ciudad" required autocomplete="address-level2"
+                <span class="text-sm">Ciudad</span>
+                <input id="ciudad" name="ciudad" autocomplete="address-level2"
                        class="px-3 py-2 rounded-xl border bg-white" />
               </label>
-              <label class="grid gap-1" for="cp">
-                <span class="text-sm">Código postal *</span>
-                <input id="cp" name="cp" required pattern="[0-9]{4,6}" inputmode="numeric"
-                       autocomplete="postal-code" class="px-3 py-2 rounded-xl border bg-white" />
-              </label>
-              <label class="grid gap-1" for="email_factura">
-                <span class="text-sm">Email de facturación *</span>
-                <input id="email_factura" name="email_factura" type="email" required autocomplete="email"
-                       class="px-3 py-2 rounded-xl border bg-white" />
-              </label>
-              <label class="grid gap-1" for="metodo_pago">
-                <span class="text-sm">Método de pago *</span>
-                <!-- Minimización PII: sin IBAN en el alta; enviaremos enlace seguro después -->
-                <select id="metodo_pago" name="metodo_pago" required class="px-3 py-2 rounded-xl border bg-white">
-                  <option value="enlace-sepa" selected>SEPA (enlace seguro posterior)</option>
-                  <option value="tarjeta">Tarjeta (enlace de pago)</option>
+              <label class="grid gap-1" for="uso_previsto">
+                <span class="text-sm">Uso principal</span>
+                <select id="uso_previsto" name="uso_previsto" class="px-3 py-2 rounded-xl border bg-white">
+                  <option value="documentos-trabajo" selected>Documentos y carpetas de trabajo</option>
+                  <option value="compartir-clientes">Compartir archivos con clientes</option>
+                  <option value="archivo-interno">Archivo interno del despacho</option>
+                  <option value="otro">Otro</option>
                 </select>
               </label>
             </div>
@@ -157,8 +163,11 @@
                 <input id="fecha" name="fecha" type="date" class="px-3 py-2 rounded-xl border bg-white" />
               </label>
             </div>
+            <div class="rounded-xl border border-indigo-100 bg-indigo-50 p-4 text-sm text-indigo-800">
+              La prueba incluye hasta 200 GB para sincronizar y compartir archivos. El servicio de backup de equipos con agente se añadirá más adelante.
+            </div>
             <label class="grid gap-1" for="comentarios">
-              <span class="text-sm">Comentarios (sistemas, NAS, M365, etc.)</span>
+              <span class="text-sm">Comentarios</span>
               <textarea id="comentarios" name="comentarios" rows="3" class="px-3 py-2 rounded-xl border bg-white"></textarea>
             </label>
           </fieldset>
@@ -168,7 +177,7 @@
             <legend class="text-base font-semibold">RGPD y comunicaciones</legend>
             <label class="inline-flex items-start gap-2">
               <input type="checkbox" name="acepto_rgpd" required class="mt-1 h-4 w-4" />
-              <span class="text-sm">Confirmo que he leído y acepto el <a href="legal/privacidad.html" class="underline">Aviso de privacidad</a> y el <a href="#" class="underline" title="Contrato de encargo de tratamiento">Contrato de Encargado de Tratamiento</a>.</span>
+              <span class="text-sm">Confirmo que he leído y acepto el <a href="legal/privacidad.html" class="underline">Aviso de privacidad</a> y solicito recibir el Contrato de Encargado de Tratamiento antes de activar el servicio.</span>
             </label>
             <label class="inline-flex items-start gap-2">
               <input type="checkbox" name="acepto_comunicaciones" class="mt-1 h-4 w-4" />
@@ -178,6 +187,14 @@
 
           <!-- reCAPTCHA de Netlify (se renderiza en prod) -->
           <div data-netlify-recaptcha="true"></div>
+            <p class="mt-2 text-[11px] text-slate-500">
+              Este sitio está protegido por reCAPTCHA y se aplican la
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="underline">Política de Privacidad</a>
+              y los
+              <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" class="underline">Términos de Servicio</a>
+              de Google.
+            </p>
+
 
           <!-- reCAPTCHA de Netlify (se renderiza en prod) -->
           <div data-netlify-recaptcha="true"></div>
@@ -191,7 +208,7 @@
 
 
           <div class="flex flex-wrap items-center justify-between gap-3">
-            <p class="text-xs text-slate-500">Protegido con antispam y verificación por email. Puedes cancelar en cualquier momento.</p>
+            <p class="text-xs text-slate-500">No pedimos datos de pago para activar la prueba. Revisaremos la solicitud antes de crear el espacio.</p>
             <button type="submit" class="inline-flex px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">
               Enviar solicitud de alta
             </button>
@@ -208,7 +225,7 @@
   <!-- Footer -->
   <footer class="py-10 border-t border-slate-200 bg-white" role="contentinfo">
     <div class="max-w-6xl mx-auto px-4 flex flex-col items-center gap-4 text-center">
-      <div class="text-sm text-slate-500">© <span id="year"></span> Backups Online Barcelona</div>
+      <div class="text-sm text-slate-500">© <span id="year"></span> BarnaCloud</div>
       <nav class="flex items-center gap-6 text-sm" aria-label="Legal">
         <a href="legal/aviso-legal.html">Aviso legal</a>
         <a href="legal/privacidad.html">Privacidad</a>
@@ -217,8 +234,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+	  <script src="assets/main.js" defer></script>
+	</body>
+	</html>

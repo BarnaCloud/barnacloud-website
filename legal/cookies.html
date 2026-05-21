@@ -10,13 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/cookie-banner.css" />
   <style>body{font-family:Inter,ui-sans-serif,system-ui,-apple-system}</style>
 </head>
 <body class="bg-slate-50 text-slate-800">
   <main class="max-w-3xl mx-auto p-6">
     <h1 class="text-2xl md:text-3xl font-bold">Política de cookies</h1>
     <p class="mt-3 text-slate-700">
-      En esta página te explicamos qué cookies utilizamos en <strong>[barnacloud.com]</strong>, con qué finalidad y cómo puedes gestionarlas.
+	      En esta página te explicamos qué cookies utilizamos en <strong>barnacloud.com</strong>, con qué finalidad y cómo puedes gestionarlas.
     </p>
 
     <h2 class="mt-8 text-xl font-semibold">1) ¿Qué son las cookies?</h2>
@@ -27,21 +28,21 @@
     <h2 class="mt-8 text-xl font-semibold">2) Responsable y contacto</h2>
     <div class="mt-2 text-slate-700 space-y-1">
       <p><strong>Responsable:</strong> MRR — BarnaCloud</p>
-      <p><strong>Email:</strong> <a class="underline" href="mailto:privacidad@backupsbarcelona.example">privacidad@backupsbarcelona.example</a></p>
-      <p><strong>Dirección:</strong> [Dirección completa], 080XX Barcelona (España)</p>
+	      <p><strong>Email:</strong> <a class="underline" href="mailto:barnacloudbcn@gmail.com">barnacloudbcn@gmail.com</a></p>
+	      <p><strong>Dirección:</strong> pendiente de completar antes de publicar</p>
     </div>
 
     <h2 class="mt-8 text-xl font-semibold">3) Tipos de cookies que usamos</h2>
     <p class="mt-2 text-slate-700">
-      En nuestra web distinguimos entre <strong>técnicas necesarias</strong> (imprescindibles) y <strong>analíticas</strong> (opcionales). Las analíticas solo se cargan si das tu consentimiento desde el banner o el panel de preferencias.
+	      En nuestra web distinguimos entre <strong>técnicas necesarias</strong> (imprescindibles) y <strong>analíticas</strong> (opcionales). Actualmente no cargamos analítica web sin consentimiento.
     </p>
 
     <div class="mt-4 p-4 rounded-xl border bg-slate-50">
-      <h3 class="font-semibold">A) Técnicas necesarias</h3>
-      <p class="mt-2 text-slate-700">
-        Permiten el funcionamiento básico del sitio. Actualmente no instalamos cookies propias de sesión; sin embargo,
-        guardamos tu preferencia de consentimiento en <em>localStorage</em> (no es una cookie).
-      </p>
+	      <h3 class="font-semibold">A) Técnicas necesarias</h3>
+	      <p class="mt-2 text-slate-700">
+	        Permiten el funcionamiento básico del sitio. Guardamos tu decisión sobre cookies en <em>localStorage</em> para no volver a mostrarte el banner en cada visita.
+	        El formulario de alta utiliza reCAPTCHA de Google para evitar spam, y ese proveedor puede cargar cookies o tecnologías similares cuando visitas esa página.
+	      </p>
       <div class="overflow-auto mt-3">
         <table class="w-full text-sm">
           <thead class="text-left text-slate-600">
@@ -54,13 +55,20 @@
             </tr>
           </thead>
           <tbody class="align-top">
-            <tr class="border-t">
-              <td class="py-2"><code>cookieConsent</code></td>
-              <td class="py-2">localStorage</td>
-              <td class="py-2">Guardar si aceptas o rechazas cookies analíticas.</td>
-              <td class="py-2">12 meses (o hasta que lo borres)</td>
-              <td class="py-2">Propio</td>
-            </tr>
+	            <tr class="border-t">
+	              <td class="py-2"><code>barnacloudCookieConsent</code></td>
+	              <td class="py-2">localStorage</td>
+	              <td class="py-2">Guardar si aceptas, deniegas o configuras cookies.</td>
+	              <td class="py-2">Hasta que borres el almacenamiento del navegador</td>
+	              <td class="py-2">Propio</td>
+	            </tr>
+	            <tr class="border-t">
+	              <td class="py-2">reCAPTCHA</td>
+	              <td class="py-2">Cookies/tecnologías similares</td>
+	              <td class="py-2">Prevención de spam y abuso en formularios.</td>
+	              <td class="py-2">Según configuración del proveedor</td>
+	              <td class="py-2">Google</td>
+	            </tr>
           </tbody>
         </table>
       </div>
@@ -69,8 +77,7 @@
     <div class="mt-6 p-4 rounded-xl border bg-slate-50">
       <h3 class="font-semibold">B) Analíticas (opcionales)</h3>
       <p class="mt-2 text-slate-700">
-        Nos ayudan a medir visitas y mejorar contenidos. Solo se cargan si aceptas en el banner o panel de preferencias.
-        Si usamos <strong>Google Analytics 4</strong>, las cookies típicas son:
+	        Nos ayudan a medir visitas y mejorar contenidos. Ahora mismo no tenemos analítica activa. Si en el futuro activamos <strong>Google Analytics 4</strong>, Matomo u otra herramienta, actualizaremos esta tabla y pediremos consentimiento cuando sea necesario.
       </p>
       <div class="overflow-auto mt-3">
         <table class="w-full text-sm">
@@ -105,20 +112,20 @@
         </table>
       </div>
       <p class="mt-3 text-xs text-slate-500">
-        Nota: la lista puede variar según la configuración de Analytics/Matomo. Nunca cargamos analíticas sin tu consentimiento.
+	        Nota: esta lista solo aplica si activamos analítica. Nunca cargaremos analíticas sin tu consentimiento cuando la ley lo requiera.
       </p>
     </div>
 
     <h2 class="mt-8 text-xl font-semibold">4) Base jurídica</h2>
     <p class="mt-2 text-slate-700">
-      Las cookies técnicas se basan en nuestro <em>interés legítimo</em> en hacer funcionar la web. Las analíticas se basan en tu <em>consentimiento</em>,
-      que puedes otorgar, denegar o revocar en cualquier momento.
+	      Las cookies técnicas se basan en nuestro <em>interés legítimo</em> en hacer funcionar la web y proteger los formularios. Las analíticas, si se activan, se basarán en tu <em>consentimiento</em>,
+	      que podrás otorgar, denegar o revocar en cualquier momento.
     </p>
 
     <h2 class="mt-8 text-xl font-semibold">5) ¿Cómo cambiar o retirar tu consentimiento?</h2>
     <ul class="mt-2 list-disc list-inside text-slate-700 space-y-1">
-      <li>Desde el <strong>panel de preferencias</strong> de la web (pie de página: “Cookies”).</li>
-      <li>Borrando las cookies/almacenamiento del navegador (las analíticas dejarán de funcionar).</li>
+	      <li>Borrando las cookies/almacenamiento del navegador para que vuelva a aparecer el banner.</li>
+	      <li>Configurando tu navegador para bloquear o limitar cookies de terceros.</li>
     </ul>
     <p class="mt-2 text-slate-700">
       También puedes gestionar cookies desde tu navegador: Chrome, Firefox, Safari, Edge, etc.
@@ -137,11 +144,11 @@
     <p class="mt-8 text-sm text-slate-500">Última actualización: <span id="date"></span></p>
 
     <div class="mt-6">
-      <a href="/barnacloud/index.html" class="inline-flex items-center px-3 py-1.5 rounded-xl ring-1 ring-slate-300 hover:bg-white">Volver a la web</a>
+	      <a href="/index.html" class="inline-flex items-center px-3 py-1.5 rounded-xl ring-1 ring-slate-300 hover:bg-white">Volver a la web</a>
     </div>
-    
+
   </main>
 
-  <script>document.getElementById('date').textContent = new Date().toLocaleDateString('es-ES');</script>
-</body>
-</html>
+	  <script src="../assets/main.js" defer></script>
+	</body>
+	</html>
