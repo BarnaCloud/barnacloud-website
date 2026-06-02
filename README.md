@@ -1,123 +1,34 @@
-# BarnaCloud Website
+# Backups Online Barcelona — Landing
 
-Web estática de BarnaCloud, orientada a presentar el servicio de nube privada y copias de seguridad para profesionales y pequeñas empresas en Barcelona.
+Landing page con secciones de precios, contacto y páginas legales.
 
-El sitio no tiene proceso de build: usa HTML, CSS, JavaScript ligero y Tailwind CSS cargado desde CDN.
+## Cómo desplegar
 
-## Contenido principal
+### 1. Dominio
+De momento usa `backupsbarcelona.example`. Cuando tengas dominio propio cámbialo en:
+- `index.html`: etiquetas `<link rel=\"canonical\">` y `<meta property=\"og:url\">`.
+- `robots.txt` y `sitemap.xml`.
 
-- `index.html`: landing principal con funcionalidades, precios, FAQ, información del servicio y contacto.
-- `alta-clientes.html`: formulario de alta para la prueba gratuita de nube privada Sync de 200 GB.
-- `area-clientes.html`: página provisional del área de clientes.
-- `gracias.html`: página de confirmación tras enviar el formulario.
-- `404.html`: página de error.
-- `legal/aviso-legal.html`, `legal/privacidad.html`, `legal/cookies.html`: páginas legales.
-- `assets/main.js`: navegación móvil, selector de planes, estado activo de navegación y banner de cookies.
-- `assets/cookie-banner.css`: estilos del aviso de cookies.
-- `logos/`: recursos gráficos de BarnaCloud.
-- `robots.txt` y `sitemap.xml`: archivos SEO básicos.
-- `_headers`: cabeceras de seguridad para Netlify.
-- `update-web.sh`: helper para crear rama, commitear y subir cambios.
+### 2. Cookies / Analítica
+Actualmente solo se guarda `cookieConsent` en `localStorage` para el banner. Si activas Google Analytics (GA4) o Matomo:
+- Añade el script de analítica en `index.html`.
+- Declara las cookies usadas en `cookies.html` (nombre, proveedor, finalidad, duración).
+- Ajusta la **Content Security Policy** en `netlify.toml` o `vercel.json` para permitir conexiones a sus dominios.
 
-## Ver en local
+### 3. Despliegue
+Puedes usar:
+- **Netlify**: sube el repo y detecta `index.html`. Usa `netlify.toml` para redirecciones y cabeceras.
+- **Vercel**: sube repo y añade `vercel.json` para cabeceras de seguridad.
+- **GitHub Pages**: sube a rama `gh-pages`.
 
-Puedes abrir `index.html` directamente en el navegador, aunque es preferible servir la carpeta para probar rutas relativas, formularios y páginas legales:
+### 4. Archivos incluidos
+- `index.html` — landing principal.
+- `/legal/aviso-legal.html`, `/legal/privacidad.html`, `/legal/cookies.html`.
+- `/404.html` — página de error.
+- `robots.txt` y `sitemap.xml` básicos.
+- `netlify.toml` y `vercel.json` con cabeceras CSP de ejemplo.
 
-```bash
-python3 -m http.server 8080
-```
-
-Luego abre:
-
-```text
-http://localhost:8080
-```
-
-## Formularios
-
-El alta de clientes está preparada para Netlify Forms:
-
-- Formulario: `alta-clientes`
-- Redirección tras envío: `/gracias.html`
-- Protección antispam: honeypot y `data-netlify-recaptcha`
-
-El reCAPTCHA de Netlify se renderiza en producción cuando el sitio está desplegado en Netlify. En local puede no verse ni comportarse igual.
-
-## Cookies y analítica
-
-Actualmente el sitio muestra un banner de cookies y guarda la preferencia en `localStorage` con la clave `barnacloudCookieConsent`.
-
-No hay analítica activa. Si se añade GA4, Matomo u otra herramienta:
-
-- Añadir el script correspondiente en las páginas necesarias.
-- Actualizar `legal/cookies.html` con nombre, proveedor, finalidad y duración de cada cookie.
-- Revisar `legal/privacidad.html` si cambia el tratamiento de datos.
-- Actualizar `_headers` si la herramienta necesita dominios externos adicionales.
-
-## Dominio y SEO
-
-El dominio configurado es:
-
-```text
-https://www.barnacloud.com/
-```
-
-Si cambia el dominio, revisar:
-
-- `index.html`: canonical, `og:url`, `og:image` y JSON-LD.
-- `robots.txt`
-- `sitemap.xml`
-- Enlaces absolutos que apunten a `www.barnacloud.com`.
-
-## Despliegue
-
-### Netlify
-
-Opción recomendada para este proyecto.
-
-1. Conectar el repositorio.
-2. Publicar la raíz del proyecto.
-3. Dejar el comando de build vacío.
-4. Confirmar que Netlify detecta el formulario `alta-clientes`.
-5. Revisar que `_headers` se aplica correctamente.
-
-### Vercel
-
-También puede desplegarse como sitio estático, pero las cabeceras de `_headers` deben migrarse a `vercel.json` y los formularios de Netlify no funcionarán sin cambiar la integración.
-
-### GitHub Pages
-
-Puede servir la web estática, pero no soporta Netlify Forms ni `_headers`.
-
-## Flujo de cambios
-
-El script `update-web.sh` crea una rama, añade todos los cambios, hace commit y sube la rama al remoto:
-
-```bash
-./update-web.sh
-```
-
-Antes de usarlo, revisa siempre el estado del repo:
-
-```bash
-git status --short
-```
-
-El `.gitignore` excluye `*:Zone.Identifier`, archivos que pueden aparecer al mover recursos desde Windows o WSL.
-
-## Checklist antes de publicar
-
-- Revisar textos, precios y planes activos.
-- Comprobar enlaces de navegación en desktop y móvil.
-- Probar envío del formulario en Netlify.
-- Validar páginas legales y datos fiscales.
-- Revisar `robots.txt` y `sitemap.xml`.
-- Probar la página `404.html`.
-- Confirmar que logos e imagen Open Graph cargan correctamente.
-
-## Pendiente
-
-- Sustituir o completar datos fiscales definitivos en páginas legales.
-- Decidir si las páginas legales deben pasar de `noindex` a `index` cuando estén completas.
-- Crear una imagen social específica si se quiere algo distinto al logo.
-- Activar el área de clientes real o enlazarla con la plataforma definitiva.
+### 5. TODO
+- Sustituir datos ficticios (NIF/CIF, emails, dominio real).
+- Personalizar OG image (`/assets/og-cover.jpg`).
+- Revisar precios/planes según negocio real.
