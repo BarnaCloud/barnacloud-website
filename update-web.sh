@@ -26,7 +26,7 @@ git push -u origin "$branch"
 echo ""
 echo "✅ Rama '$branch' creada y subida a remoto."
 echo "ℹ️  Ahora abre tu PR en:"
-echo "   https://github.com/barnacloudbcn/barnacloud-website/pull/new/$branch"
+echo "   https://github.com/BarnaCloud/barnacloud-website/pull/new/$branch"
 
 read -p "ENTER, para salir del script"
 clear
