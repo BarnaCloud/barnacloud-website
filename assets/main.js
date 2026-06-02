@@ -21,6 +21,71 @@ mobileMenu?.querySelectorAll('a')?.forEach((link) => {
   });
 });
 
+const signupForm = document.querySelector('form[data-api-submit="signup"]');
+
+function getFormValue(formData, name) {
+  const value = formData.get(name);
+  return typeof value === 'string' ? value.trim() : '';
+}
+
+function buildSignupPayload(formData) {
+  return {
+    name: getFormValue(formData, 'nombre'),
+    email: getFormValue(formData, 'email'),
+    phone: getFormValue(formData, 'telefono'),
+    company: getFormValue(formData, 'empresa'),
+    sector: getFormValue(formData, 'sector') || null,
+    users: Number(getFormValue(formData, 'usuarios')) || 1,
+    preferred_subdomain: getFormValue(formData, 'subdominio') || null,
+    comments: getFormValue(formData, 'comentarios') || null,
+  };
+}
+
+signupForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  const endpoint = form.dataset.apiEndpoint;
+  const formData = new FormData(form);
+  const status = form.querySelector('[data-form-status]');
+  const submitButton = form.querySelector('button[type="submit"]');
+  const defaultLabel = submitButton?.dataset.submitLabel ?? submitButton?.textContent ?? 'Enviar';
+
+  if (!endpoint || getFormValue(formData, 'bot-field')) {
+    return;
+  }
+
+  if (status) {
+    status.textContent = 'Enviando solicitud...';
+  }
+  submitButton?.setAttribute('disabled', 'true');
+  if (submitButton) {
+    submitButton.textContent = 'Enviando...';
+  }
+
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(buildSignupPayload(formData)),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Signup request failed with status ${response.status}`);
+    }
+
+    window.location.href = form.getAttribute('action') || '/gracias.html';
+  } catch {
+    if (status) {
+      status.textContent = 'No hemos podido enviar la solicitud. Escríbenos a barnacloudbcn@gmail.com o inténtalo de nuevo.';
+    }
+    submitButton?.removeAttribute('disabled');
+    if (submitButton) {
+      submitButton.textContent = defaultLabel;
+    }
+  }
+});
+
 const btnPool1 = document.getElementById('btnPool1');
 const btnPool2 = document.getElementById('btnPool2');
 const pricingPool1 = document.getElementById('pricingPool1');
