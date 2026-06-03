@@ -35,8 +35,8 @@ function buildSignupPayload(formData) {
     phone: getFormValue(formData, 'telefono'),
     company: getFormValue(formData, 'empresa'),
     sector: getFormValue(formData, 'sector') || null,
-    users: Number(getFormValue(formData, 'usuarios')) || 1,
-    preferred_subdomain: getFormValue(formData, 'subdominio') || null,
+    users: 1,
+    preferred_subdomain: null,
     comments: getFormValue(formData, 'comentarios') || null,
   };
 }
