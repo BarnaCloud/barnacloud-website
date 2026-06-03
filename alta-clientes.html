@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alta de clientes | BarnaCloud</title>
-  <meta name="description" content="Formulario de alta para probar BarnaCloud: nube privada de 200 GB tipo Drive o Dropbox con datos en España." />
+  <meta name="description" content="Formulario de alta para probar BarnaCloud: storage privado de 200 GB con 15 días de prueba y datos en España." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,7 +56,7 @@
     <section class="bg-gradient-to-b from-slate-50 to-white py-16">
       <div class="max-w-3xl mx-auto px-4 text-center">
         <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900">Darme de alta como cliente</h1>
-        <p class="mt-4 text-lg text-slate-600">Completa este formulario para activar una prueba gratuita de tu nube privada de 200 GB, pensada para guardar y compartir archivos como en Drive o Dropbox.</p>
+        <p class="mt-4 text-lg text-slate-600">Completa este formulario para activar una prueba gratuita de 15 días con 200 GB de storage privado, pensada para guardar y compartir archivos con una experiencia sencilla de arrastrar y soltar.</p>
       </div>
 
       <!-- Formulario -->
@@ -76,9 +76,9 @@
 
           <!-- Plan bloqueado a prueba gratuita -->
           <div class="rounded-xl border bg-slate-50 p-4 text-sm text-slate-700">
-            <strong>Servicio seleccionado:</strong> Prueba gratuita — Nube privada Sync — 200 GB. Podrás guardar documentos, carpetas y archivos de trabajo como en un Drive privado.
-            <input type="hidden" name="plan" value="Prueba gratuita Sync 200GB" />
-            <input type="hidden" name="tipo_servicio" value="nube-privada-sync" />
+            <strong>Servicio seleccionado:</strong> Prueba gratuita de 15 días — Storage privado — 200 GB. Podrás subir, guardar y descargar archivos desde un portal web sencillo.
+            <input type="hidden" name="plan" value="Prueba gratuita Storage 200GB 15 días" />
+            <input type="hidden" name="tipo_servicio" value="storage-privado" />
             <input type="hidden" name="almacenamiento" value="200GB" />
           </div>
 
@@ -110,7 +110,7 @@
             <legend class="text-base font-semibold">Datos de empresa</legend>
             <div class="grid md:grid-cols-2 gap-4">
               <label class="grid gap-1" for="empresa">
-                <span class="text-sm">Empresa / Autónomo *</span>
+                <span class="text-sm">Nombre de la empresa o autónomo *</span>
                 <input id="empresa" name="empresa" required autocomplete="organization"
                        class="px-3 py-2 rounded-xl border bg-white" />
               </label>
@@ -143,34 +143,15 @@
             </div>
           </fieldset>
 
-          <!-- Configuración de servicio -->
+          <!-- Prueba gratuita -->
           <fieldset class="grid gap-4">
-            <legend class="text-base font-semibold">Configuración inicial</legend>
-            <div class="grid md:grid-cols-2 gap-4">
-              <label class="grid gap-1" for="usuarios">
-                <span class="text-sm">Usuarios iniciales *</span>
-                <input id="usuarios" name="usuarios" type="number" min="1" step="1" value="1" inputmode="numeric"
-                       required class="px-3 py-2 rounded-xl border bg-white" />
-              </label>
-              <label class="grid gap-1" for="subdominio">
-                <span class="text-sm">Subdominio preferido</span>
-                <div class="flex items-center gap-2">
-                  <input id="subdominio" name="subdominio" autocomplete="off"
-                         class="px-3 py-2 rounded-xl border bg-white flex-1" placeholder="tu-empresa" />
-                  <span class="text-sm text-slate-500">.barnacloud.com</span>
-                </div>
-              </label>
-              <label class="grid gap-1" for="fecha">
-                <span class="text-sm">Fecha preferida de inicio</span>
-                <input id="fecha" name="fecha" type="date" class="px-3 py-2 rounded-xl border bg-white" />
-              </label>
-            </div>
+            <legend class="text-base font-semibold">Prueba gratuita</legend>
             <div class="rounded-xl border border-indigo-100 bg-indigo-50 p-4 text-sm text-indigo-800">
-              La prueba incluye hasta 200 GB para sincronizar y compartir archivos. El servicio de backup de equipos con agente se añadirá más adelante.
+              La prueba incluye 15 días con 200 GB de storage privado y 1 usuario inicial. Al completar el alta revisaremos la solicitud y activaremos el espacio.
             </div>
             <label class="grid gap-1" for="comentarios">
-              <span class="text-sm">Comentarios</span>
-              <textarea id="comentarios" name="comentarios" rows="3" class="px-3 py-2 rounded-xl border bg-white"></textarea>
+              <span class="text-sm">Comentarios o necesidades concretas</span>
+              <textarea id="comentarios" name="comentarios" rows="3" class="px-3 py-2 rounded-xl border bg-white" placeholder="Por ejemplo: tipo de archivos, volumen aproximado, dudas sobre acceso o permisos."></textarea>
             </label>
           </fieldset>
 
@@ -199,7 +180,7 @@
 
 
           <div class="flex flex-wrap items-center justify-between gap-3">
-            <p class="text-xs text-slate-500" data-form-status>No pedimos datos de pago para activar la prueba. Revisaremos la solicitud antes de crear el espacio.</p>
+            <p class="text-xs text-slate-500" data-form-status>No pedimos datos de pago para activar la prueba de 15 días. Revisaremos la solicitud antes de crear el espacio.</p>
             <button type="submit" class="inline-flex px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700" data-submit-label="Enviar solicitud de alta">
               Enviar solicitud de alta
             </button>
