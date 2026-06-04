@@ -239,3 +239,24 @@ function createCookieBanner() {
 }
 
 createCookieBanner();
+
+const aboutAnimation = document.querySelector('[data-about-animation]');
+const aboutSection = document.getElementById('about');
+
+if (aboutAnimation && aboutSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const restartAboutAnimation = () => {
+    aboutAnimation.classList.remove('is-animating');
+    void aboutAnimation.offsetWidth;
+    aboutAnimation.classList.add('is-animating');
+  };
+
+  const aboutObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        restartAboutAnimation();
+      }
+    });
+  }, { threshold: 0.45 });
+
+  aboutObserver.observe(aboutSection);
+}
