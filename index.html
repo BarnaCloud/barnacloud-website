@@ -107,9 +107,132 @@
       from { opacity: 0; transform: translateY(8px) scale(.98); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
+
+    .about-animation {
+      position: relative;
+      min-height: 390px;
+      overflow: hidden;
+      border-radius: 1rem;
+      border: 1px solid #dbe3ef;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(59,130,246,.14), transparent 28%),
+        radial-gradient(circle at 86% 16%, rgba(16,185,129,.12), transparent 26%),
+        linear-gradient(135deg, #f8fafc 0%, #eef6ff 48%, #ffffff 100%);
+      box-shadow: 0 18px 44px rgba(15,23,42,.10);
+      isolation: isolate;
+    }
+    .about-animation::before {
+      content: "";
+      position: absolute;
+      inset: 2.5rem;
+      border: 1px dashed rgba(37,99,235,.20);
+      border-radius: 999px;
+      opacity: .72;
+    }
+    .about-core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 3;
+      width: 12.5rem;
+      min-height: 12.5rem;
+      padding: 1.25rem;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(148,163,184,.35);
+      box-shadow: 0 18px 36px rgba(15,23,42,.13);
+      transform: translate(-50%, -50%);
+    }
+    .about-core img {
+      width: 4.75rem;
+      height: 4.75rem;
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .about-core strong,
+    .about-core span { display: block; }
+    .about-core strong { margin-top: .5rem; color: #172033; }
+    .about-core span { margin-top: .25rem; color: #64748b; font-size: .82rem; }
+    .about-sector {
+      position: absolute;
+      z-index: 2;
+      width: min(46%, 13.5rem);
+      padding: .9rem;
+      border-radius: .9rem;
+      border: 1px solid rgba(203,213,225,.86);
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 14px 28px rgba(15,23,42,.10);
+      opacity: 0;
+      transform: translateY(14px) scale(.96);
+    }
+    .about-sector__icon {
+      width: 2.3rem;
+      height: 2.3rem;
+      display: grid;
+      place-items: center;
+      border-radius: .8rem;
+      background: #eef4ff;
+      color: #1d4ed8;
+      font-size: 1.25rem;
+    }
+    .about-sector strong { display: block; margin-top: .7rem; color: #172033; font-size: .95rem; }
+    .about-sector span { display: block; margin-top: .25rem; color: #64748b; font-size: .78rem; line-height: 1.35; }
+    .about-sector--legal { left: 6%; top: 9%; }
+    .about-sector--notary { right: 6%; top: 12%; }
+    .about-sector--medical { left: 7%; bottom: 10%; }
+    .about-sector--team { right: 7%; bottom: 9%; }
+    .about-flow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .about-flow path {
+      stroke: rgba(37,99,235,.32);
+      stroke-width: 2;
+      stroke-dasharray: 8 10;
+      fill: none;
+      opacity: 0;
+    }
+    .about-animation.is-animating .about-sector {
+      animation: about-card-in .74s cubic-bezier(.2,.72,.2,1) both;
+    }
+    .about-animation.is-animating .about-sector--legal { animation-delay: .08s; }
+    .about-animation.is-animating .about-sector--notary { animation-delay: .42s; }
+    .about-animation.is-animating .about-sector--medical { animation-delay: .76s; }
+    .about-animation.is-animating .about-sector--team { animation-delay: 1.1s; }
+    .about-animation.is-animating .about-core { animation: about-core-pulse .85s ease both 1.55s; }
+    .about-animation.is-animating .about-flow path { animation: about-path-in 1.7s ease both .2s; }
+    @keyframes about-card-in {
+      from { opacity: 0; transform: translateY(14px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes about-core-pulse {
+      0% { box-shadow: 0 18px 36px rgba(15,23,42,.13), 0 0 0 0 rgba(37,99,235,.16); }
+      55% { box-shadow: 0 18px 36px rgba(15,23,42,.13), 0 0 0 18px rgba(37,99,235,.08); }
+      100% { box-shadow: 0 18px 36px rgba(15,23,42,.13), 0 0 0 0 rgba(37,99,235,0); }
+    }
+    @keyframes about-path-in {
+      from { opacity: 0; stroke-dashoffset: 64; }
+      to { opacity: 1; stroke-dashoffset: 0; }
+    }
+    @media (max-width: 640px) {
+      .about-animation { min-height: 560px; }
+      .about-animation::before { inset: 2rem 1.25rem; border-radius: 2rem; }
+      .about-core { width: 10.5rem; min-height: 10.5rem; }
+      .about-sector { width: 44%; padding: .75rem; }
+      .about-sector--legal { left: 5%; top: 5%; }
+      .about-sector--notary { right: 5%; top: 5%; }
+      .about-sector--medical { left: 5%; bottom: 5%; }
+      .about-sector--team { right: 5%; bottom: 5%; }
+    }
     @media (prefers-reduced-motion: reduce) {
-      .top-nav a, .top-nav a::after, .brand-link img, .hero-cta, .hero-cta::after, .hero-price-link, .trust-pill { transition: none; animation: none; }
+      .top-nav a, .top-nav a::after, .brand-link img, .hero-cta, .hero-cta::after, .hero-price-link, .trust-pill, .about-sector, .about-core, .about-flow path { transition: none; animation: none; }
       .top-nav a:hover, .top-nav a:focus-visible, .brand-link:hover img, .brand-link:focus-visible img, .hero-cta:hover, .hero-cta:focus-visible, .hero-price-link:hover, .hero-price-link:focus-visible, .trust-pill:hover { transform: none; }
+      .about-sector, .about-flow path { opacity: 1; }
     }
     /* MVP helpers: mostrar otros planes pero atenuados/bloqueados */
     .locked { position: relative; }
@@ -486,15 +609,45 @@
             Unimos experiencia en cloud y seguridad con soporte humano. Te ayudamos desde la puesta en marcha inicial hasta la organización de usuarios, carpetas y permisos.
           </p>
         </div>
-        <div class="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-md">
-          <img
-            src="logos/BarnaCloud_logo01.png"
-            alt="Equipo de BarnaCloud trabajando en una oficina de Barcelona"
-            class="aspect-[4/3] w-full object-cover"
-            loading="lazy"
-            decoding="async"
-            onerror="this.onerror=null; this.src='/logos/logo01-transparent.png'; this.classList.remove('object-cover'); this.classList.add('object-contain','p-10');"
-          />
+        <div class="about-animation" data-about-animation aria-label="Áreas a las que acompaña BarnaCloud">
+          <svg class="about-flow" viewBox="0 0 520 390" aria-hidden="true" focusable="false">
+            <path d="M260 195 C170 118 120 92 70 72" />
+            <path d="M260 195 C350 118 398 96 454 82" />
+            <path d="M260 195 C164 254 118 294 78 328" />
+            <path d="M260 195 C352 254 404 294 455 326" />
+          </svg>
+
+          <article class="about-sector about-sector--legal">
+            <div class="about-sector__icon">§</div>
+            <strong>Despachos de abogados</strong>
+            <span>Expedientes, permisos y documentación sensible bajo control.</span>
+          </article>
+
+          <article class="about-sector about-sector--notary">
+            <div class="about-sector__icon">☑</div>
+            <strong>Notarías</strong>
+            <span>Archivo privado, compartición segura y trazabilidad diaria.</span>
+          </article>
+
+          <article class="about-sector about-sector--medical">
+            <div class="about-sector__icon">＋</div>
+            <strong>Consultas médicas</strong>
+            <span>Datos privados, acceso sencillo y foco en cumplimiento RGPD.</span>
+          </article>
+
+          <article class="about-sector about-sector--team">
+            <div class="about-sector__icon">BC</div>
+            <strong>Nuestro equipo</strong>
+            <span>Soporte cercano desde Barcelona para la puesta en marcha.</span>
+          </article>
+
+          <div class="about-core">
+            <div>
+              <img src="logos/logo01-transparent.png" alt="" loading="lazy" decoding="async" />
+              <strong>BarnaCloud</strong>
+              <span>Nube privada para equipos que trabajan con datos sensibles</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
