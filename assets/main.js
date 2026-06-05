@@ -240,23 +240,22 @@ function createCookieBanner() {
 
 createCookieBanner();
 
-const aboutSlideshow = document.querySelector('[data-about-slideshow]');
-const aboutSection = document.getElementById('about');
+const sectorSlideshow = document.querySelector('[data-sector-slideshow]');
 
-if (aboutSlideshow && aboutSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const restartAboutSlideshow = () => {
-    aboutSlideshow.classList.remove('is-playing');
-    void aboutSlideshow.offsetWidth;
-    aboutSlideshow.classList.add('is-playing');
+if (sectorSlideshow && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const restartSectorSlideshow = () => {
+    sectorSlideshow.classList.remove('is-playing');
+    void sectorSlideshow.offsetWidth;
+    sectorSlideshow.classList.add('is-playing');
   };
 
-  const aboutObserver = new IntersectionObserver((entries) => {
+  const sectorObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        restartAboutSlideshow();
+        restartSectorSlideshow();
       }
     });
   }, { threshold: 0.45 });
 
-  aboutObserver.observe(aboutSection);
+  sectorObserver.observe(sectorSlideshow);
 }
