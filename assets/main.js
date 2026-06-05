@@ -240,20 +240,20 @@ function createCookieBanner() {
 
 createCookieBanner();
 
-const aboutAnimation = document.querySelector('[data-about-animation]');
+const aboutSlideshow = document.querySelector('[data-about-slideshow]');
 const aboutSection = document.getElementById('about');
 
-if (aboutAnimation && aboutSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const restartAboutAnimation = () => {
-    aboutAnimation.classList.remove('is-animating');
-    void aboutAnimation.offsetWidth;
-    aboutAnimation.classList.add('is-animating');
+if (aboutSlideshow && aboutSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const restartAboutSlideshow = () => {
+    aboutSlideshow.classList.remove('is-playing');
+    void aboutSlideshow.offsetWidth;
+    aboutSlideshow.classList.add('is-playing');
   };
 
   const aboutObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        restartAboutAnimation();
+        restartAboutSlideshow();
       }
     });
   }, { threshold: 0.45 });
