@@ -8,7 +8,7 @@ El sitio no tiene proceso de build: usa HTML, CSS, JavaScript ligero y Tailwind 
 
 - `index.html`: landing principal con funcionalidades, precios, FAQ, información del servicio y contacto.
 - `alta-clientes.html`: formulario de alta para la prueba gratuita de nube privada Sync de 200 GB.
-- `area-clientes.html`: página provisional del área de clientes.
+- `area-clientes.html`: redirección al portal privado en `https://portal.barnacloud.com/`.
 - `gracias.html`: página de confirmación tras enviar el formulario.
 - `404.html`: página de error.
 - `legal/aviso-legal.html`, `legal/privacidad.html`, `legal/cookies.html`: páginas legales.
@@ -118,4 +118,4 @@ git status --short
 - Sustituir o completar datos fiscales definitivos en páginas legales.
 - Decidir si las páginas legales deben pasar de `noindex` a `index` cuando estén completas.
 - Crear una imagen social específica si se quiere algo distinto al logo.
-- Activar el área de clientes real o enlazarla con la plataforma definitiva.
+- Mantener el enlace del área de clientes apuntando al portal privado de producción.
