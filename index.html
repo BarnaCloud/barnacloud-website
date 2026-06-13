@@ -124,8 +124,8 @@
       inset: 0;
       z-index: 2;
       background:
-        linear-gradient(180deg, rgba(15,23,42,.10) 0%, rgba(15,23,42,0) 45%, rgba(15,23,42,.62) 100%),
-        linear-gradient(90deg, rgba(15,23,42,.28) 0%, rgba(15,23,42,0) 42%);
+        linear-gradient(180deg, rgba(15,23,42,.16) 0%, rgba(15,23,42,.04) 42%, rgba(15,23,42,.76) 100%),
+        linear-gradient(90deg, rgba(15,23,42,.42) 0%, rgba(15,23,42,.10) 48%, rgba(15,23,42,.24) 100%);
       pointer-events: none;
     }
     .sector-slide {
@@ -146,19 +146,38 @@
       right: 1.25rem;
       bottom: 1.25rem;
       z-index: 3;
-      max-width: 24rem;
-      padding: .9rem 1rem;
+      max-width: 29rem;
+      padding: 1rem 1.05rem;
       border-radius: .9rem;
       border: 1px solid rgba(255,255,255,.28);
-      background: rgba(15,23,42,.70);
+      background: rgba(15,23,42,.78);
       color: #fff;
       box-shadow: 0 16px 38px rgba(15,23,42,.22);
       backdrop-filter: blur(12px);
     }
     .sector-slide__label span,
-    .sector-slide__label strong { display: block; }
-    .sector-slide__label span { font-size: .76rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #93c5fd; }
-    .sector-slide__label strong { margin-top: .25rem; font-size: 1.08rem; line-height: 1.25; }
+    .sector-slide__label strong,
+    .sector-slide__label small { display: block; }
+    .sector-slide__label span { font-size: .74rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #93c5fd; }
+    .sector-slide__label strong { margin-top: .25rem; font-size: 1.12rem; line-height: 1.25; }
+    .sector-slide__label p { margin: .5rem 0 0; color: #dbeafe; font-size: .88rem; line-height: 1.5; }
+    .sector-slide__label small { margin-top: .55rem; color: #bfdbfe; font-weight: 800; line-height: 1.35; }
+    .sector-slide__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      margin-top: .75rem;
+      padding: .52rem .72rem;
+      border-radius: .7rem;
+      background: rgba(255,255,255,.92);
+      color: #1e3a8a;
+      font-size: .78rem;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(15,23,42,.22);
+    }
+    .sector-slide__cta:hover,
+    .sector-slide__cta:focus-visible { background: #ffffff; transform: translateY(-1px); }
     .sector-slideshow__brand {
       position: absolute;
       left: 1.25rem;
@@ -188,16 +207,18 @@
       transform: scaleX(0);
       background: linear-gradient(90deg, #2563eb, #38bdf8, #ffffff);
     }
-    .sector-slideshow.is-playing .sector-slide { animation: sector-photo-cycle 8s ease both; }
-    .sector-slideshow.is-playing .sector-slide:nth-child(2) { animation-delay: 2s; }
-    .sector-slideshow.is-playing .sector-slide:nth-child(3) { animation-delay: 4s; }
-    .sector-slideshow.is-playing .sector-slide:nth-child(4) { animation-delay: 6s; }
-    .sector-slideshow.is-playing .sector-slideshow__progress { animation: sector-progress 8s linear both; }
+    .sector-slideshow.is-playing .sector-slide { animation: sector-photo-cycle 24s ease both infinite; }
+    .sector-slideshow.is-playing .sector-slide:nth-child(2) { animation-delay: 4s; }
+    .sector-slideshow.is-playing .sector-slide:nth-child(3) { animation-delay: 8s; }
+    .sector-slideshow.is-playing .sector-slide:nth-child(4) { animation-delay: 12s; }
+    .sector-slideshow.is-playing .sector-slide:nth-child(5) { animation-delay: 16s; }
+    .sector-slideshow.is-playing .sector-slide:nth-child(6) { animation-delay: 20s; }
+    .sector-slideshow.is-playing .sector-slideshow__progress { animation: sector-progress 24s linear both infinite; }
     @keyframes sector-photo-cycle {
       0% { opacity: 0; transform: scale(1.05); }
-      6% { opacity: 1; transform: scale(1.02); }
-      24% { opacity: 1; transform: scale(1); }
-      31% { opacity: 0; transform: scale(1); }
+      3% { opacity: 1; transform: scale(1.02); }
+      14% { opacity: 1; transform: scale(1); }
+      17% { opacity: 0; transform: scale(1); }
       100% { opacity: 0; transform: scale(1); }
     }
     @keyframes sector-progress {
@@ -207,11 +228,12 @@
     @media (max-width: 640px) {
       .sector-slideshow { min-height: 430px; }
       .sector-slide__label { left: 1rem; right: 1rem; bottom: 1rem; }
+      .sector-slide__label p { font-size: .84rem; }
       .sector-slideshow__brand { left: 1rem; top: 1rem; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .top-nav a, .top-nav a::after, .brand-link img, .hero-cta, .hero-cta::after, .hero-price-link, .trust-pill, .sector-slide, .sector-slideshow__progress { transition: none; animation: none; }
-      .top-nav a:hover, .top-nav a:focus-visible, .brand-link:hover img, .brand-link:focus-visible img, .hero-cta:hover, .hero-cta:focus-visible, .hero-price-link:hover, .hero-price-link:focus-visible, .trust-pill:hover { transform: none; }
+      .top-nav a, .top-nav a::after, .brand-link img, .hero-cta, .hero-cta::after, .hero-price-link, .trust-pill, .sector-slide, .sector-slideshow__progress, .sector-slide__cta { transition: none; animation: none; }
+      .top-nav a:hover, .top-nav a:focus-visible, .brand-link:hover img, .brand-link:focus-visible img, .hero-cta:hover, .hero-cta:focus-visible, .hero-price-link:hover, .hero-price-link:focus-visible, .trust-pill:hover, .sector-slide__cta:hover, .sector-slide__cta:focus-visible { transform: none; }
       .sector-slide:first-child { opacity: 1; transform: none; }
     }
     /* MVP helpers: mostrar otros planes pero atenuados/bloqueados */
@@ -307,10 +329,10 @@
       <div class="max-w-6xl mx-auto px-4 pt-12 pb-14 grid md:grid-cols-2 items-center gap-10">
         <div class="max-w-lg">
             <h1 class="text-xl md:text-[1.25rem] lg:text-[1.45rem] font-extrabold leading-[1.25] text-slate-900">
-              Protege la información confidencial de tu <span class="text-indigo-600">despacho o consulta médica</span> con una nube privada segura en Barcelona
+              Protege la información crítica de tu <span class="text-indigo-600">consulta, despacho u oficina técnica</span> con una nube europea segura
             </h1>
             <p class="mt-5 text-base leading-relaxed text-slate-600">
-              Solución cloud de proximidad para empresas y profesionales que trabajan con información sensible: abogados, médicos, gestorías, despachos profesionales y pequeñas empresas. Empieza con una prueba gratuita de 200 GB para guardar, sincronizar y compartir archivos como en Drive o Dropbox, con cifrado, datos en España y acompañamiento técnico cercano.
+              BarnaCloud ofrece copias de seguridad cifradas, restauración rápida, soporte cercano en Barcelona y alojamiento de datos dentro de la Unión Europea, alineado con GDPR/RGPD.
             </p>
           <div class="mt-7 flex flex-col sm:flex-row gap-3 sm:items-center">
             <a href="alta-clientes.html" class="hero-cta hero-cta--primary px-7 py-3 rounded-xl bg-emerald-500 text-white font-semibold shadow-lg shadow-emerald-500/20">
@@ -332,37 +354,69 @@
           <div class="mt-10 flex flex-wrap items-center gap-4 text-xs text-slate-500">
             <span class="trust-pill px-3 py-1 rounded-xl">Bufetes de abogados</span>
             <span class="trust-pill px-3 py-1 rounded-xl">Consultas médicas</span>
-            <span class="trust-pill px-3 py-1 rounded-xl">Estudios creativos</span>
-            <span class="trust-pill px-3 py-1 rounded-xl">Despachos</span>
+            <span class="trust-pill px-3 py-1 rounded-xl">Oficinas técnicas</span>
+            <span class="trust-pill px-3 py-1 rounded-xl">Datos en la UE</span>
           </div>
         </div>
         <div class="sector-slideshow" data-sector-slideshow aria-label="Sectores que acompaña BarnaCloud">
           <div class="sector-slide">
-            <img src="assets/about-law.jpg" alt="Profesionales de un despacho trabajando con documentación digital segura" loading="lazy" decoding="async" />
-            <div class="sector-slide__label">
-              <span>Despachos de abogados</span>
-              <strong>Expedientes y permisos bajo control</strong>
-            </div>
-          </div>
-          <div class="sector-slide">
-            <img src="assets/about-notary.jpg" alt="Equipo de una notaría revisando documentación privada en un entorno digital" loading="lazy" decoding="async" />
-            <div class="sector-slide__label">
-              <span>Notarías</span>
-              <strong>Archivo privado y trazabilidad diaria</strong>
-            </div>
-          </div>
-          <div class="sector-slide">
-            <img src="assets/about-medical.jpg" alt="Consulta médica con profesionales gestionando datos privados de forma segura" loading="lazy" decoding="async" />
+            <img src="assets/about-medical.jpg" alt="Consulta médica moderna utilizando una solución segura de backup cloud europeo" loading="lazy" decoding="async" />
             <div class="sector-slide__label">
               <span>Consultas médicas</span>
-              <strong>Datos privados con acceso sencillo</strong>
+              <strong>Backups seguros para consultas médicas</strong>
+              <p>Protege historiales, informes, consentimientos y documentación sensible con copias cifradas y restauración rápida.</p>
+              <small>Datos sanitarios protegidos. Soporte cercano en Barcelona.</small>
+              <a class="sector-slide__cta" href="#contact">Solicitar información <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
           <div class="sector-slide">
-            <img src="assets/about-architecture.jpg" alt="Estudio de arquitectura compartiendo planos y proyectos en la nube" loading="lazy" decoding="async" />
+            <img src="assets/about-notary.jpg" alt="Proveedor cloud europeo alineado con GDPR con datos alojados dentro de la Unión Europea" loading="lazy" decoding="async" />
             <div class="sector-slide__label">
-              <span>Arquitectos y estudios</span>
-              <strong>Proyectos compartidos sin perder control</strong>
+              <span>Cloud europeo y GDPR</span>
+              <strong>Cloud europeo alineado con GDPR</strong>
+              <p>Tus archivos se alojan en infraestructura europea. Los datos de tus clientes no salen de la Unión Europea.</p>
+              <small>Datos en la UE. Control, privacidad y cumplimiento.</small>
+              <a class="sector-slide__cta" href="#features">Conocer seguridad <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+          <div class="sector-slide">
+            <img src="assets/about-law.jpg" alt="Despacho de abogados con documentación confidencial protegida mediante backups cifrados" loading="lazy" decoding="async" />
+            <div class="sector-slide__label">
+              <span>Despachos de abogados</span>
+              <strong>Protección cloud para despachos</strong>
+              <p>Contratos, expedientes y archivos de clientes protegidos frente a pérdida, borrado accidental o ransomware.</p>
+              <small>Privacidad, trazabilidad y recuperación rápida.</small>
+              <a class="sector-slide__cta" href="#contact">Proteger mi despacho <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+          <div class="sector-slide">
+            <img src="assets/about-architecture.jpg" alt="Oficina técnica protegiendo planos y documentación de proyectos con BarnaCloud" loading="lazy" decoding="async" />
+            <div class="sector-slide__label">
+              <span>Oficinas técnicas</span>
+              <strong>Protege planos, proyectos y documentación técnica</strong>
+              <p>Copias de seguridad para arquitectura, ingeniería y oficinas que trabajan con archivos críticos y grandes volúmenes.</p>
+              <small>Tus proyectos siempre disponibles.</small>
+              <a class="sector-slide__cta" href="#pricing">Ver solución para empresas <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+          <div class="sector-slide">
+            <img src="assets/about-law.jpg" alt="Restauración rápida de archivos empresariales desde copias de seguridad cifradas" loading="lazy" decoding="async" />
+            <div class="sector-slide__label">
+              <span>Recuperación</span>
+              <strong>Recupera tus archivos cuando más lo necesitas</strong>
+              <p>Ante un borrado accidental, fallo de equipo o ataque ransomware, te ayudamos a recuperar versiones anteriores.</p>
+              <small>Backups cifrados. Restauración rápida. Menos interrupciones.</small>
+              <a class="sector-slide__cta" href="alta-clientes.html">Empezar ahora <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+          <div class="sector-slide">
+            <img src="assets/about-architecture.jpg" alt="Proveedor cloud local en Barcelona con soporte cercano para empresas y profesionales" loading="lazy" decoding="async" />
+            <div class="sector-slide__label">
+              <span>Barcelona</span>
+              <strong>Soporte cercano, no una nube anónima</strong>
+              <p>Proveedor local en Barcelona para configurar, seguir y recuperar tus copias cuando más lo necesitas.</p>
+              <small>Tecnología cloud con trato humano.</small>
+              <a class="sector-slide__cta" href="#contact">Hablar con BarnaCloud <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
           <div class="sector-slideshow__brand" aria-hidden="true">
