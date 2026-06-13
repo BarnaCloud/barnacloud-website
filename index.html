@@ -110,7 +110,7 @@
 
     .sector-slideshow {
       position: relative;
-      min-height: 390px;
+      min-height: 450px;
       overflow: hidden;
       border-radius: 1rem;
       border: 1px solid #dbe3ef;
@@ -124,8 +124,8 @@
       inset: 0;
       z-index: 2;
       background:
-        linear-gradient(180deg, rgba(15,23,42,.16) 0%, rgba(15,23,42,.04) 42%, rgba(15,23,42,.76) 100%),
-        linear-gradient(90deg, rgba(15,23,42,.42) 0%, rgba(15,23,42,.10) 48%, rgba(15,23,42,.24) 100%);
+        linear-gradient(180deg, rgba(15,23,42,.08) 0%, rgba(15,23,42,0) 52%, rgba(15,23,42,.58) 100%),
+        linear-gradient(90deg, rgba(15,23,42,.18) 0%, rgba(15,23,42,0) 48%, rgba(15,23,42,.14) 100%);
       pointer-events: none;
     }
     .sector-slide {
@@ -146,11 +146,11 @@
       right: 1.25rem;
       bottom: 1.25rem;
       z-index: 3;
-      max-width: 29rem;
-      padding: 1rem 1.05rem;
+      max-width: 22rem;
+      padding: .82rem .9rem;
       border-radius: .9rem;
       border: 1px solid rgba(255,255,255,.28);
-      background: rgba(15,23,42,.78);
+      background: rgba(15,23,42,.66);
       color: #fff;
       box-shadow: 0 16px 38px rgba(15,23,42,.22);
       backdrop-filter: blur(12px);
@@ -158,20 +158,19 @@
     .sector-slide__label span,
     .sector-slide__label strong,
     .sector-slide__label small { display: block; }
-    .sector-slide__label span { font-size: .74rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #93c5fd; }
-    .sector-slide__label strong { margin-top: .25rem; font-size: 1.12rem; line-height: 1.25; }
-    .sector-slide__label p { margin: .5rem 0 0; color: #dbeafe; font-size: .88rem; line-height: 1.5; }
-    .sector-slide__label small { margin-top: .55rem; color: #bfdbfe; font-weight: 800; line-height: 1.35; }
+    .sector-slide__label span { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #93c5fd; }
+    .sector-slide__label strong { margin-top: .2rem; font-size: 1rem; line-height: 1.22; }
+    .sector-slide__label small { margin-top: .42rem; color: #bfdbfe; font-size: .78rem; font-weight: 800; line-height: 1.3; }
     .sector-slide__cta {
       display: inline-flex;
       align-items: center;
       gap: .35rem;
-      margin-top: .75rem;
-      padding: .52rem .72rem;
+      margin-top: .6rem;
+      padding: .44rem .62rem;
       border-radius: .7rem;
       background: rgba(255,255,255,.92);
       color: #1e3a8a;
-      font-size: .78rem;
+      font-size: .74rem;
       font-weight: 900;
       text-decoration: none;
       box-shadow: 0 10px 24px rgba(15,23,42,.22);
@@ -226,9 +225,8 @@
       to { transform: scaleX(1); }
     }
     @media (max-width: 640px) {
-      .sector-slideshow { min-height: 430px; }
+      .sector-slideshow { min-height: 460px; }
       .sector-slide__label { left: 1rem; right: 1rem; bottom: 1rem; }
-      .sector-slide__label p { font-size: .84rem; }
       .sector-slideshow__brand { left: 1rem; top: 1rem; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -364,18 +362,16 @@
             <div class="sector-slide__label">
               <span>Consultas médicas</span>
               <strong>Backups seguros para consultas médicas</strong>
-              <p>Protege historiales, informes, consentimientos y documentación sensible con copias cifradas y restauración rápida.</p>
-              <small>Datos sanitarios protegidos. Soporte cercano en Barcelona.</small>
+              <small>Datos sanitarios protegidos con copias cifradas.</small>
               <a class="sector-slide__cta" href="#contact">Solicitar información <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
           <div class="sector-slide">
-            <img src="assets/about-notary.jpg" alt="Proveedor cloud europeo alineado con GDPR con datos alojados dentro de la Unión Europea" loading="lazy" decoding="async" />
+            <img src="https://cdn.hetzner.com/assets/Uploads/datacenter.jpg" alt="Datacenter europeo de Hetzner utilizado como proveedor cloud de BarnaCloud" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
             <div class="sector-slide__label">
-              <span>Cloud europeo y GDPR</span>
+              <span>Infraestructura Hetzner</span>
               <strong>Cloud europeo alineado con GDPR</strong>
-              <p>Tus archivos se alojan en infraestructura europea. Los datos de tus clientes no salen de la Unión Europea.</p>
-              <small>Datos en la UE. Control, privacidad y cumplimiento.</small>
+              <small>Datos alojados en la UE con proveedor cloud europeo.</small>
               <a class="sector-slide__cta" href="#features">Conocer seguridad <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
@@ -384,8 +380,7 @@
             <div class="sector-slide__label">
               <span>Despachos de abogados</span>
               <strong>Protección cloud para despachos</strong>
-              <p>Contratos, expedientes y archivos de clientes protegidos frente a pérdida, borrado accidental o ransomware.</p>
-              <small>Privacidad, trazabilidad y recuperación rápida.</small>
+              <small>Expedientes y contratos protegidos frente a pérdida.</small>
               <a class="sector-slide__cta" href="#contact">Proteger mi despacho <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
@@ -394,8 +389,7 @@
             <div class="sector-slide__label">
               <span>Oficinas técnicas</span>
               <strong>Protege planos, proyectos y documentación técnica</strong>
-              <p>Copias de seguridad para arquitectura, ingeniería y oficinas que trabajan con archivos críticos y grandes volúmenes.</p>
-              <small>Tus proyectos siempre disponibles.</small>
+              <small>Backups para archivos críticos y grandes volúmenes.</small>
               <a class="sector-slide__cta" href="#pricing">Ver solución para empresas <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
@@ -404,8 +398,7 @@
             <div class="sector-slide__label">
               <span>Recuperación</span>
               <strong>Recupera tus archivos cuando más lo necesitas</strong>
-              <p>Ante un borrado accidental, fallo de equipo o ataque ransomware, te ayudamos a recuperar versiones anteriores.</p>
-              <small>Backups cifrados. Restauración rápida. Menos interrupciones.</small>
+              <small>Restauración rápida ante borrados, fallos o ransomware.</small>
               <a class="sector-slide__cta" href="alta-clientes.html">Empezar ahora <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
@@ -414,8 +407,7 @@
             <div class="sector-slide__label">
               <span>Barcelona</span>
               <strong>Soporte cercano, no una nube anónima</strong>
-              <p>Proveedor local en Barcelona para configurar, seguir y recuperar tus copias cuando más lo necesitas.</p>
-              <small>Tecnología cloud con trato humano.</small>
+              <small>Tecnología cloud europea con trato humano.</small>
               <a class="sector-slide__cta" href="#contact">Hablar con BarnaCloud <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
